@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Invoke-NaSystemApi</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Invoke-NaSystemApi</H2><PRE><br>NAME<br>    Invoke-NaSystemApi<br>    <br>SYNOPSIS<br>    Sends a raw API request to Data ONTAP.<br>    <br>SYNTAX<br>    Invoke-NaSystemApi [-Request] &lt;String&gt; [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    Invoke-NaSystemApi [-RequestXML] &lt;XmlDocument&gt; [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Sends a raw API request to Data ONTAP.  The request must be formatted as <br>    XML.  See the Manage ONTAP SDK documentation for details.<br>    <br><br>PARAMETERS<br>    -Request &lt;String&gt;<br>        The Zephyr API (ZAPI) request.  This argument accepts the request as a <br>        string, but it must be a well-formed XML fragment.  Do not include the <br>        XML header or the &lt;netapp&gt; wrapper tag.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -RequestXML &lt;XmlDocument&gt;<br>        The Zephyr API (ZAPI) request.  This argument accepts the request as a <br>        .NET XmlDocument object.  Do not include the XML header or the &lt;netapp&gt; <br>        wrapper tag when building the request.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    System.Xml.XmlDocument<br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    System.Xml.XmlDocument<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: system<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;$xml = Invoke-NaSystemApi &quot;&lt;system-get-version/&gt;&quot;<br>    $xml.results.version<br>    <br>    <br>    Call the system-get-version API.<br>    <br>    <br>    <br>    NetApp Release 7.3.3: Thu Mar 11 22:29:52 PST 2010<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;$request = new-object &quot;System.Xml.XmlDocument&quot;<br>    $request.LoadXml(&quot;&lt;aggr-list-info&gt;&lt;aggregate&gt;aggr0&lt;/aggregate&gt;&lt;/aggr-list-in<br>    fo&gt;&quot;)<br>    $response = Invoke-NaSystemApi $request<br>    $response.results.aggregates.&quot;aggr-info&quot;<br>    <br>    <br>    Build an XML document that invokes the aggr-list-info API to retrieve <br>    details about aggregate &#39;aggr0&#39;.<br>    <br>    <br>    <br>    name                 : aggr0<br>    uuid                 : 31d60ef0-6a41-11dd-8d86-00a09806c227<br>    type                 : aggr<br>    state                : online<br>    mirror-status        : unmirrored<br>    size-total           : 121910042624<br>    size-used            : 115444699136<br>    size-percentage-used : 95<br>    size-available       : 6465343488<br>    files-total          : 31142<br>    files-used           : 142<br>    checksum-style       : block<br>    raid-size            : 16<br>    raid-status          : raid_dp,redirect<br>    is-checksum-enabled  : true<br>    checksum-status      : active<br>    has-local-root       : true<br>    has-partner-root     : false<br>    is-inconsistent      : false<br>    is-snaplock          : false<br>    disk-count           : 3<br>    volume-count         : 1<br>    plex-count           : 1<br>    plexes               : plexes<br>    volumes              : volumes<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaSystemApi.html">Get-NaSystemApi</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

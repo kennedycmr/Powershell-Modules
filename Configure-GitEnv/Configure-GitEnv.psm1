@@ -3,7 +3,7 @@
 
 function Configure-GitEnv() {
   # need to add to $PATH where the git binaries are
-  $GITInstallLoc = 'c:\Users\kenc150\AppData\Local\GitHubDesktop\app-0.7.0\resources\app\git\cmd'
+  $GITInstallLoc = 'C:\Users\kenc150\AppData\Local\GitHubDesktop\app-1.3.2\resources\app\git\cmd'
   $ENV:PATH = $ENV:PATH + ";" + $GITInstallLoc
 
   # need to setup proxy so that we can use git. 

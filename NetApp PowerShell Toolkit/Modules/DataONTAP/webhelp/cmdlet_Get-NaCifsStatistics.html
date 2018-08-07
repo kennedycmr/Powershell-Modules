@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaCifsStatistics</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaCifsStatistics</H2><PRE><br>NAME<br>    Get-NaCifsStatistics<br>    <br>SYNOPSIS<br>    Display CIFS client statistics.<br>    <br>SYNTAX<br>    Get-NaCifsStatistics [-SortGroup &lt;String&gt;] [-MaxClients &lt;Int32&gt;] <br>    [-AverageType &lt;String&gt;] [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Display CIFS client statistics.  The read/write size statistics are <br>    provided in bytes/second.<br>    <br><br>PARAMETERS<br>    -SortGroup &lt;String&gt;<br>        If specified, the client statistics are sorted by the value of the <br>        string: &quot;ops&quot;:  Sort by the number of operations per second of any <br>        type. &quot;reads&quot;: Sort by kbytes/sec of data in response to read requests. <br>        &quot;writes&quot;: Sort by kbytes/sec of data written to the filer. &quot;ios&quot;:  Sort <br>        by the combined total of reads plus writes for each client. <br>        &quot;suspicious&quot;: Sort by the number of &quot;suspicious&quot; events per second by <br>        each client.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -MaxClients &lt;Int32&gt;<br>        Specifies the maximum number of top clients to display (the default is <br>        20).<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -AverageType &lt;String&gt;<br>        Specifies how the client statistics are to be averaged for display: <br>        &quot;smooth&quot;: Use a smoothed average which is weighted towards recent <br>        behavior but takes into account previous history of the client. &quot;now&quot;:  <br>        Use a one-second sample taken immediately and no history is taken into <br>        account. &quot;total&quot;: Use the total count of each statistic divided by the <br>        total time since sampling started. If the is-verbose option is also <br>        set, the totals are given without dividing by the sample time.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Cifs.CifsTopInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: cifs<br>        API: cifs-top-iter-start, cifs-top-iter-next, cifs-top-iter-end<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaCifsStatistics<br>    <br>    <br>    Get CIFS client statistics.<br>    <br>    <br>    <br>    OpsPerSec        : 1740<br>    ReadOps          : 0<br>    ReadSize         : 0<br>    SuspiciousPerSec : 131<br>    UserInfo         : 10.61.167.22    RTPRRE\administrator<br>    WriteOps         : 519<br>    WriteSize        : 14196736<br>    <br>    <br>    <br>    <br>RELATED LINKS<br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

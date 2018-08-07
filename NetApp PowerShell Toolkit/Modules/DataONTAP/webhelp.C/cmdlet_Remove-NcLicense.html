@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Remove-NcLicense</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Remove-NcLicense</H2><PRE><br>NAME<br>    Remove-NcLicense<br>    <br>SYNOPSIS<br>    Removes license for a Data ONTAP service.<br>    <br>SYNTAX<br>    Remove-NcLicense [-Package] &lt;String&gt; [[-SerialNumber] &lt;String&gt;] <br>    [-Controller &lt;NcController[]&gt;] [-ZapiRetryCount &lt;Int32&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    Remove-NcLicense -Unused [-Controller &lt;NcController[]&gt;] [-ZapiRetryCount <br>    &lt;Int32&gt;] [&lt;CommonParameters&gt;]<br>    <br>    Remove-NcLicense -Expired [-Controller &lt;NcController[]&gt;] [-ZapiRetryCount <br>    &lt;Int32&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Removes license for a Data ONTAP service.<br>    <br><br>PARAMETERS<br>    -Package &lt;String&gt;<br>        Package to remove.  <br>        <br>        Possible values: <br>        &quot;base&quot;                - Cluster Base License<br>        &quot;nfs&quot;                 - NFS License<br>        &quot;cifs&quot;                - CIFS License<br>        &quot;iscsi&quot;               - iSCSI License<br>        &quot;fcp&quot;                 - FCP License<br>        &quot;cdmi&quot;                - CDMI License<br>        &quot;snaprestore&quot;         - SnapRestore License<br>        &quot;snapmirror&quot;          - SnapMirror License<br>        &quot;flexclone&quot;           - FlexClone License<br>        &quot;snapvault&quot;           - SnapVault License<br>        &quot;snaplock&quot;            - SnapLock License<br>        &quot;snapmanagersuite&quot;    - SnapManagerSuite License<br>        &quot;snapprotectapps&quot;     - SnapProtectApp License<br>        &quot;v_storageattach&quot;     - Virtual Attached Storage License<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -SerialNumber &lt;String&gt;<br>        Serial number of the node associated with the license. If this <br>        parameter is not provided, the default serial number used is the <br>        cluster serial number.<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NcController[]&gt;<br>        A clustered Data ONTAP controller to receive this cmdlet, as embodied <br>        by an NcController object.  This parameter is returned by the <br>        Connect-NcController cmdlet.  If not specified, the value in the global <br>        variable CurrentNcController is used.  In the latter case, if <br>        CurrentNcController contains a collection of NcController objects, this <br>        cmdlet is invoked on each controller in succession.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -ZapiRetryCount &lt;Int32&gt;<br>        <br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Unused<br>        If specified, licenses that have no controller affiliation in the <br>        cluster will be removed.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Expired<br>        If specified, licenses that have expired in the cluster will be removed.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: license<br>        API: <br>        license-v2-delete,license-v2-delete-unused,license-v2-delete-expired<br>        Family: cluster<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Remove-NcLicense fcp<br>    <br>    <br>    Remove the fcp license.<br>    <br>    <br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NcLicense.html">Get-NcLicense</A> <br>    <A HREF="cmdlet_Add-NcLicense.html">Add-NcLicense</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

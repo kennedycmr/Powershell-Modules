@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Resume-NcAggrScrub</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Resume-NcAggrScrub</H2><PRE><br>NAME<br>    Resume-NcAggrScrub<br>    <br>SYNOPSIS<br>    Resume parity scrubbing on the named aggregate, plex, or RAID group.<br>    <br>SYNTAX<br>    Resume-NcAggrScrub [[-Name] &lt;String&gt;] [[-Plex] &lt;String&gt;] [[-RaidGroup] <br>    &lt;String&gt;] [[-Node] &lt;String&gt;] [-Controller &lt;NcController[]&gt;] <br>    [-ZapiRetryCount &lt;Int32&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Resume parity scrubbing on the named aggregate, plex, or RAID group.  If no <br>    name is given, then resume parity scrubbing on all RAID groups for which it <br>    has been suspended.<br>    <br><br>PARAMETERS<br>    -Name &lt;String&gt;<br>        Name or UUID of the entity for which scrubbing is to resume.<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Plex &lt;String&gt;<br>        If provided, this specifies the plex name. Ex: plex0.  Must be used in <br>        conjunction with Name parameter.<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -RaidGroup &lt;String&gt;<br>        If provided, this specifies the RAID group. Ex: rg2.  Must be used in <br>        conjunction with Name and Plex parameters.<br>        <br>        Required?                    false<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Node &lt;String&gt;<br>        Name of node.<br>        <br>        Required?                    false<br>        Position?                    4<br>        Default value                <br>        Accept pipeline input?       true (ByValue)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NcController[]&gt;<br>        A clustered Data ONTAP controller to receive this cmdlet, as embodied <br>        by an NcController object.  This parameter is returned by the <br>        Connect-NcController cmdlet.  If not specified, the value in the global <br>        variable CurrentNcController is used.  In the latter case, if <br>        CurrentNcController contains a collection of NcController objects, this <br>        cmdlet is invoked on each controller in succession.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -ZapiRetryCount &lt;Int32&gt;<br>        The number of times to retry commands that return with errors that may <br>        succeed after a retry<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.C.Types.Volume.ScrubDetailInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: aggr<br>        API: aggr-scrub-resume<br>        Family: cluster<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Resume-NcAggrScrub test_aggr<br>    <br>    <br>    Resume the scrubbing of aggregate test_aggr.<br>    <br>    <br>    <br>    IsSuspended                 : False<br>    LastScrubTimestamp          : 1362292786<br>    LastScrubTimestampDT        : 3/3/2013 1:39:46 AM<br>    NcController                : 10.63.165.62<br>    PercentageComplete          : 1<br>    RaidGroup                   : /test_aggr/plex0/rg0<br>    LastScrubTimestampSpecified : True<br>    PercentageCompleteSpecified : True<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Start-NcAggrScrub.html">Start-NcAggrScrub</A> <br>    <A HREF="cmdlet_Stop-NcAggrScrub.html">Stop-NcAggrScrub</A> <br>    <A HREF="cmdlet_Suspend-NcAggrScrub.html">Suspend-NcAggrScrub</A> <br>    <A HREF="cmdlet_Get-NcAggrScrub.html">Get-NcAggrScrub</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

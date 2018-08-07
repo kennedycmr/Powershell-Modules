@@ -1,0 +1,18 @@
+﻿1. Open PowerShell.
+2. Change to Script directory
+3. Run .\Add-ArrayToProxyManagement.ps1 -ManagementIpAddress "10.113.84.210","10.113.84.211" -Url https://ICTM0902R720-6:8082/devmgr/
+4. Validate with Get-NeStorageSystem -cred $cred
+5. Run .\Run-SV_VC_Refresh.ps1.  
+   -->The default CG name is CG_SQLServer_Test.
+
+Step 3 is only required to be run once upon initial installation of the WSP.
+Step 4 is optional.
+
+After the initial setup, the normal workflow is:
+Step 1,
+Step 2,
+Step 5.
+
+This workflow can be easily scheduled via Windows Task Manager.
+
+The Snapshot Images are configured to be storage friendly and not accumulate beyond the limits defined by the consistency group.

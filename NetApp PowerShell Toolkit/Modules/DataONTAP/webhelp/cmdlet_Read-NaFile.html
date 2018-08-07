@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Read-NaFile</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Read-NaFile</H2><PRE><br>NAME<br>    Read-NaFile<br>    <br>SYNOPSIS<br>    Read data from a named file.<br>    <br>SYNTAX<br>    Read-NaFile [-Path] &lt;String&gt; [-Raw] [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    Read-NaFile [-Path] &lt;String&gt; [-Raw] [-Controller &lt;NaController&gt;] -Length <br>    &lt;Int64&gt; -Offset &lt;Int64&gt; [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Read data from a named file.<br>    <br>    Note that this API is provided primarily for administrative purposes.  It <br>    is not intended for high-performance I/O.<br>    <br><br>PARAMETERS<br>    -Path &lt;String&gt;<br>        Path of the file, i.e. /vol/&lt;volumename&gt;/&lt;filename&gt;.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Raw<br>        Specify to get the file data as a byte array.  This option is useful <br>        for non-ASCII files, such as binary or unicode files.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Length &lt;Int64&gt;<br>        Number of bytes to read from the file.  If not specified, the entire <br>        file is read.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Offset &lt;Int64&gt;<br>        Offset into file to start reading from.  If not specified, the file is <br>        read from the beginning.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                0<br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    System.String<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: file<br>        API: file-read-file<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Read-NaFile /vol/vol0/etc/hosts<br>    <br>    <br>    Read the /etc/hosts file.<br>    <br>    <br>    <br>    #Auto-generated by setup Tue Mar 24 18:18:19 GMT 2009<br>    127.0.0.1 localhost<br>    10.61.167.60    dunn dunn-e0a<br>    # 0.0.0.0       dunn-e0b<br>    # 0.0.0.0       dunn-e0c<br>    # 0.0.0.0       dunn-e0d<br>    10.61.160.6     sportster<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Write-NaFile.html">Write-NaFile</A> <br>    <A HREF="cmdlet_Get-NaFile.html">Get-NaFile</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

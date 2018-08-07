@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaVssSnapshot</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaVssSnapshot</H2><PRE><br>NAME<br>    Get-NaVssSnapshot<br>    <br>SYNOPSIS<br>    Get a list of completed shadow copies in the system that reside in the <br>    given context.<br>    <br>SYNTAX<br>    Get-NaVssSnapshot [[-Context] &lt;VSS_SNAPSHOT_CONTEXT&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get a list of completed shadow copies in the system that reside in the <br>    given context.<br>    <br><br>PARAMETERS<br>    -Context &lt;VSS_SNAPSHOT_CONTEXT&gt;<br>        The VSS_SNAPSHOT_CONTEXT to query snapshots.  Only snapshots with this <br>        context will be returned.  Default value is BACKUP. Possible values: <br>        ALL, BACKUP, FILE_SHARE_BACKUP, NAS_ROLLBACK, APP_ROLLBACK, <br>        CLIENT_ACCESSIBLE, CLIENT_ACCESSIBLE_WRITERS.<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                BACKUP<br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.HostUtilities.Vss.VssSnapshotProperties<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: vss<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaVssSnapshot APP_ROLLBACK<br>    <br>    <br>    Get all of the completed VSS shadow copies in the APP_ROLLBACK snapshot <br>    context.<br>    <br>    <br>    <br>    SnapshotId           : ce7bb1f0-a849-4f08-a319-f65d153303d7<br>    SnapshotSetId        : f4eebe60-7ba4-4cde-9392-d9068aae30b5<br>    SnapshotsCount       : 1<br>    SnapshotDeviceObject : \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy30<br>    OriginalVolumeName   : \\?\Volume{692eb055-7495-4360-b64c-5d3eee11a15a}\<br>    OriginatingMachine   : WIN2K8DEVRRE0.rtprre.testdomain<br>    ServiceMachine       : WIN2K8DEVRRE0.rtprre.testdomain<br>    ExposedName          :<br>    ExposedPath          :<br>    ProviderId           : b5946137-7b9f-4925-af80-51abd60b20d5<br>    SnapshotAttributes   : 131081<br>    CreationTimestamp    : 129985997207704906<br>    Status               : CREATED<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    Get-NaVssProvider <br>    Get-NaVssWriter <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

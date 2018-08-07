@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NcHelp</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NcHelp</H2><PRE><br>NAME<br>    Get-NcHelp<br>    <br>SYNOPSIS<br>    List cmdlets in the clustered ONTAP DataONTAP module, filtered by API, <br>    category, or cmdlet name.<br>    <br>SYNTAX<br>    Get-NcHelp [[-Cmdlet] &lt;String[]&gt;] [&lt;CommonParameters&gt;]<br>    <br>    Get-NcHelp -Category &lt;String[]&gt; [&lt;CommonParameters&gt;]<br>    <br>    Get-NcHelp -Api &lt;String[]&gt; [&lt;CommonParameters&gt;]<br>    <br>    Get-NcHelp -ApiList [&lt;CommonParameters&gt;]<br>    <br>    Get-NcHelp -CategoryList [&lt;CommonParameters&gt;]<br>    <br>    Get-NcHelp -Family &lt;String[]&gt; [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    List cmdlets in the clustered ONTAP DataONTAP module, filtered by API, <br>    category, or cmdlet name.<br>    <br>    This cmdlet provides a convenient mechanism to determine which DataONTAP <br>    cmdlets are available by supporting filtering on API or category.<br>    <br><br>PARAMETERS<br>    -Cmdlet &lt;String[]&gt;<br>        Specify one or more cmdlet names to list only those cmdlets.  Wildcards <br>        are supported.<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  true<br>        <br>    -Category &lt;String[]&gt;<br>        Specify one or more category names to find all cmdlets in any of them.  <br>        Wildcards are supported.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  true<br>        <br>    -Api &lt;String[]&gt;<br>        Specify one or more API names to find all cmdlets that use any of them. <br>         Wildcards are supported.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  true<br>        <br>    -ApiList<br>        Specify to get a listing of all APIs supported by the clustered ONTAP <br>        toolkit module.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -CategoryList<br>        Specify to get a listing of all cmdlet categories supported by the <br>        clustered ONTAP toolkit module.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Family &lt;String[]&gt;<br>        Specify to restrict results to &quot;vserver&quot; or &quot;cluster&quot; or both.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.PowerShell.SDK.Cmdlets.Help.HelpInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: toolkit<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NcHelp<br>    <br>    <br>    List all clustered ONTAP cmdlets in the Data ONTAP PowerShell toolkit.<br>    <br>    <br>    <br>    Name                        Api                    Category<br>    ----                        ---                    --------<br>    Confirm-NcAggrSpareLow      {aggr-check-spare-low} aggr<br>    Connect-NcController                               toolkit<br>    ...<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Show-NcHelp.html">Show-NcHelp</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Set-NcSnapshotPolicySchedule</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Set-NcSnapshotPolicySchedule</H2><PRE><br>NAME<br>    Set-NcSnapshotPolicySchedule<br>    <br>SYNOPSIS<br>    Modify a snapshot policy.<br>    <br>SYNTAX<br>    Set-NcSnapshotPolicySchedule [-Name] &lt;String&gt; [-Schedule] &lt;String&gt; [-Count] <br>    &lt;Int32&gt; [-SnapmirrorLabel &lt;String&gt;] [-Controller &lt;NcController[]&gt;] <br>    [-ZapiRetryCount &lt;Int32&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Modify a snapshot policy.<br>    <br><br>PARAMETERS<br>    -Name &lt;String&gt;<br>        The snapshot scheduling policy to modify.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Schedule &lt;String&gt;<br>        The name of a schedule to be modified.  Maximum length of this field <br>        can be 255 characters.  The schedule name may be any one of the <br>        reserved schedules like &#39;hourly&#39;, &#39;weekly&#39; or &#39;daily&#39; or it may be a <br>        user created schedule.<br>        <br>        Required?                    true<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Count &lt;Int32&gt;<br>        The new retention count for the schedule.<br>        <br>        Required?                    true<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -SnapmirrorLabel &lt;String&gt;<br>        The new SnapMirror Label for the schedule. This label will be used to <br>        define vaulting policies at a vault destination. If an empty label is <br>        specified, the existing label will be deleted. The maximum length of <br>        this field is 31 characters.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NcController[]&gt;<br>        A clustered Data ONTAP controller to receive this cmdlet, as embodied <br>        by an NcController object.  This parameter is returned by the <br>        Connect-NcController cmdlet.  If not specified, the value in the global <br>        variable CurrentNcController is used.  In the latter case, if <br>        CurrentNcController contains a collection of NcController objects, this <br>        cmdlet is invoked on each controller in succession.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -ZapiRetryCount &lt;Int32&gt;<br>        <br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.C.Types.Snapshot.SnapshotPolicyInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: snapshot<br>        API: snapshot-policy-modify-schedule<br>        Family: cluster, vserver<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Set-NcSnapshotPolicySchedule weeklyBackup weekly 52<br>    <br>    <br>    Set the snapshot schedule policy &#39;weeklyBackup&#39; to retain 52 weekly <br>    snapshots.<br>    <br>    <br>    <br>    Policy               Enabled SnapshotPolicySchedules<br>    ------               ------- -----------------------<br>    weeklyBackup          False  {weekly (52)}<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NcSnapshotPolicy.html">Get-NcSnapshotPolicy</A> <br>    <A HREF="cmdlet_Add-NcSnapshotPolicySchedule.html">Add-NcSnapshotPolicySchedule</A> <br>    <A HREF="cmdlet_Remove-NcSnapshotPolicySchedule.html">Remove-NcSnapshotPolicySchedule</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

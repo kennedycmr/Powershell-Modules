@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Invoke-NaSnapmirrorResume</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Invoke-NaSnapmirrorResume</H2><PRE><br>NAME<br>    Invoke-NaSnapmirrorResume<br>    <br>SYNOPSIS<br>    Resumes transfers to the destination that were quiesced.<br>    <br>SYNTAX<br>    Invoke-NaSnapmirrorResume [-Destination] &lt;String&gt; [-Controller <br>    &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Resumes transfers to the destination that were quiesced. This API must be <br>    issued on the destination filer.<br>    <br><br>PARAMETERS<br>    -Destination &lt;String&gt;<br>        The destination location of the snapmirrored pair to resume. which is <br>        of the volume form: &lt;filer&gt;:&lt;volume&gt; or the qtree form: <br>        &lt;filer&gt;:/vol/&lt;volume&gt;/&lt;qtree&gt;.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Snapmirror.SnapmirrorStatusInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: snapmirror<br>        API: snapmirror-resume<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Invoke-NaSnapmirrorResume benson:dunn_vol2_mirror<br>    <br>    <br>    Resume Snapmirror transfers for the specified Snapmirror destination.<br>    <br>    <br>    <br>    BaseSnapshot           : benson(0118045471)_dunn_vol2_mirror.1<br>    Contents               : Replica<br>    CurrentTransferError   : process was aborted<br>    CurrentTransferType    : scheduled<br>    DestinationLocation    : benson:dunn_vol2_mirror<br>    LagTime                : 1575<br>    LagTimeTS              : 00:26:15<br>    LastTransferDuration   : 1218<br>    LastTransferDurationTS : 00:20:18<br>    LastTransferFrom       : dunn:vol2<br>    LastTransferSize       : 88573992960<br>    LastTransferType       : initialize<br>    MirrorTimestamp        : 1280783067<br>    MirrorTimestampDT      : 8/2/2010 9:04:27 PM<br>    SourceLocation         : dunn:vol2<br>    State                  : snapmirrored<br>    Status                 : idle<br>    TransferProgress       : 0<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Invoke-NaSnapmirrorQuiesce.html">Invoke-NaSnapmirrorQuiesce</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

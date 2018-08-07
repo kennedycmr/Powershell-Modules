@@ -1,0 +1,1499 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<!-- Data ONTAP PowerShell Toolkit type definitions.  Copyright (c) 2011 NetApp.  All rights reserved. -->
+<Types>
+  <Type>
+    <Name>NetApp.Ontapi.Filer.C.NcController</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Ontapi</Name>
+        <GetScriptBlock>
+					[string]::Format("{0}.{1}", $this.OntapiMajorVersion, $this.OntapiMinorVersion)
+				</GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Aggr.AggrAttributes</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>State</Name>
+        <GetScriptBlock>
+					try { $this.AggrRaidAttributes.State } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrRaidAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrRaidAttributes" }
+					$this.AggrRaidAttributes.State = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>TotalSize</Name>
+        <GetScriptBlock>
+					try { $this.AggrSpaceAttributes.SizeTotal } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrSpaceAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrSpaceAttributes" }
+					$this.AggrSpaceAttributes.SizeTotal = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Used</Name>
+        <GetScriptBlock>
+					try { $this.AggrSpaceAttributes.PercentUsedCapacity } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrSpaceAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrSpaceAttributes" }
+					$this.AggrSpaceAttributes.PercentUsedCapacity = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Available</Name>
+        <GetScriptBlock>
+					try { $this.AggrSpaceAttributes.SizeAvailable } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrSpaceAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrSpaceAttributes" }
+					$this.AggrSpaceAttributes.SizeAvailable = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Disks</Name>
+        <GetScriptBlock>
+					try { $this.AggrRaidAttributes.DiskCount } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrRaidAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrRaidAttributes" }
+					$this.AggrRaidAttributes.DiskCount = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>RaidType</Name>
+        <GetScriptBlock>
+					try { $this.AggrRaidAttributes.RaidStatus } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrRaidAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrRaidAttributes" }
+					$this.AggrRaidAttributes.RaidStatus = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>RaidSize</Name>
+        <GetScriptBlock>
+					try { $this.AggrRaidAttributes.RaidSize } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrRaidAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrRaidAttributes" }
+					$this.AggrRaidAttributes.RaidSize = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Volumes</Name>
+        <GetScriptBlock>
+					try { $this.AggrVolumeCountAttributes.FlexvolCount } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.AggrVolumeCountAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "AggrVolumeCountAttributes" }
+					$this.AggrVolumeCountAttributes.FlexvolCount = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.File.FileInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Type</Name>
+        <ReferencedMemberName>FileType</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Size</Name>
+        <ReferencedMemberName>FileSize</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Created</Name>
+        <ReferencedMemberName>CreationTimestampDT</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Modified</Name>
+        <ReferencedMemberName>ModifiedTimestampDT</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Owner</Name>
+        <ReferencedMemberName>OwnerId</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Group</Name>
+        <ReferencedMemberName>GroupId</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Empty</Name>
+        <ReferencedMemberName>IsEmpty</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Igroup.InitiatorGroupInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Name</Name>
+        <ReferencedMemberName>InitiatorGroupName</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Type</Name>
+        <ReferencedMemberName>InitiatorGroupOsType</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Protocol</Name>
+        <ReferencedMemberName>InitiatorGroupType</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Portset</Name>
+        <ReferencedMemberName>InitiatorGroupPortsetName</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>ALUA</Name>
+        <ReferencedMemberName>InitiatorGroupAluaEnabled</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>ThrottleBorrow</Name>
+        <ReferencedMemberName>InitiatorGroupThrottleBorrow</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>ThrottleReserve</Name>
+        <ReferencedMemberName>InitiatorGroupThrottleReserve</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Partner</Name>
+        <ReferencedMemberName>InitiatorGroupUsePartner</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>VSA</Name>
+        <ReferencedMemberName>InitiatorGroupVsaEnabled</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Job.JobScheduleCronInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Month</Name>
+        <ReferencedMemberName>JobScheduleCronMonth</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Day</Name>
+        <ReferencedMemberName>JobScheduleCronDay</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>DayOfWeek</Name>
+        <ReferencedMemberName>JobScheduleCronDayOfWeek</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Hour</Name>
+        <ReferencedMemberName>JobScheduleCronHour</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Minute</Name>
+        <ReferencedMemberName>JobScheduleCronMinute</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Job.JobScheduleIntervalInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Days</Name>
+        <ReferencedMemberName>JobScheduleIntervalDays</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Hours</Name>
+        <ReferencedMemberName>JobScheduleIntervalHours</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Minutes</Name>
+        <ReferencedMemberName>JobScheduleIntervalMinutes</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Seconds</Name>
+        <ReferencedMemberName>JobScheduleIntervalSeconds</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Lun.LunInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Protocol</Name>
+        <ReferencedMemberName>MultiProtocolType</ReferencedMemberName>
+      </AliasProperty>
+      <ScriptProperty>
+        <Name>Thin</Name>
+        <GetScriptBlock>
+				if (!($this.IsSpaceReservationEnabledSpecified)) { $null }
+				else { !($this.IsSpaceReservationEnabled) }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($args[0] -ne $null) { 
+						$this.IsSpaceReservationEnabledSpecified = $true
+						$this.IsSpaceReservationEnabled = !$args[0]
+					}
+					else { 
+						$this.IsSpaceReservationEnabledSpecified = $false
+						$this.IsSpaceReservationEnabled = $null
+					}					
+				</SetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.NetDnsInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Vserver</Name>
+        <ReferencedMemberName>VserverName</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.HostsInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Vserver</Name>
+        <ReferencedMemberName>VserverName</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Address</Name>
+        <ReferencedMemberName>HostIpAddress</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.NetInterfaceInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>OpStatus</Name>
+        <ReferencedMemberName>OperationalStatus</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Security.SecurityLoginAccountInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>AuthMethod</Name>
+        <ReferencedMemberName>AuthenticationMethod</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Sis.SisStatusInfo</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>ScheduleOrPolicy</Name>
+        <GetScriptBlock>
+					if (!([String]::IsNullOrEmpty($this.Policy))) { $this.Policy } else { $this.Schedule }
+				</GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Snapmirror.SnapmirrorInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Status</Name>
+        <ReferencedMemberName>RelationshipStatus</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Snapshot.SnapshotInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Cumulative</Name>
+        <ReferencedMemberName>CumulativeTotal</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Created</Name>
+        <ReferencedMemberName>AccessTimeDT</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.StorageDisk.StorageDiskInfo</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Bay</Name>
+        <GetScriptBlock>
+					try { $this.DiskInventoryInfo.ShelfBay } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskInventoryInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskInventoryInfo" }
+					$this.DiskInventoryInfo.ShelfBay = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Shelf</Name>
+        <GetScriptBlock>
+					try { $this.DiskInventoryInfo.Shelf } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskInventoryInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskInventoryInfo" }
+					$this.DiskInventoryInfo.Shelf = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Position</Name>
+        <GetScriptBlock>
+					try { $this.DiskRaidInfo.Position } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskRaidInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskRaidInfo" }
+					$this.DiskRaidInfo.Position = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Capacity</Name>
+        <GetScriptBlock>
+					try { $this.DiskInventoryInfo.Capacity } catch [Exception] { $null }
+				</GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>RPM</Name>
+        <GetScriptBlock>
+					try { $this.DiskInventoryInfo.Rpm} catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+			if($this.DiskInventoryInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskInventoryInfo" }
+			$this.DiskInventoryInfo.Rpm = $args[0]
+		</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Paths</Name>
+        <GetScriptBlock>
+					try { $this.DiskPaths.Length } catch [Exception] { $null }
+				</GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Pool</Name>
+        <GetScriptBlock>
+					try { $this.DiskOwnershipInfo.Pool } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskOwnershipInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskOwnershipInfo" }
+					$this.DiskOwnershipInfo.Pool = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>FW</Name>
+        <GetScriptBlock>
+					try { $this.DiskInventoryInfo.FirmwareRevision } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskInventoryInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskInventoryInfo" }
+					$this.DiskInventoryInfo.FirmwareRevision  = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Model</Name>
+        <GetScriptBlock>
+					try { $this.DiskInventoryInfo.Model } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskInventoryInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskInventoryInfo" }
+					$this.DiskInventoryInfo.Model  = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Aggregate</Name>
+        <GetScriptBlock>
+					try { $this.DiskRaidInfo.DiskAggregateInfo.AggregateName } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.DiskRaidInfo -eq $null) { Initialize-NcObjectProperty $this -Name "DiskRaidInfo" }
+					if($this.DiskRaidInfo.DiskAggregateInfo -eq $null) { Initialize-NcObjectProperty $this.DiskRaidInfo -Name "DiskAggregateInfo" }
+					$this.DiskRaidInfo.DiskAggregateInfo.AggregateName = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Volume.VolumeAttributes</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>State</Name>
+        <GetScriptBlock>
+					try { $this.VolumeStateAttributes.State } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeStateAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeStateAttributes" }
+					$this.VolumeStateAttributes.State = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>TotalSize</Name>
+        <GetScriptBlock>
+					try { $this.VolumeSpaceAttributes.Size } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeSpaceAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeSpaceAttributes" }
+					$this.VolumeSpaceAttributes.Size = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Used</Name>
+        <GetScriptBlock>
+					try { $this.VolumeSpaceAttributes.PercentageSizeUsed } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeSpaceAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeSpaceAttributes" }
+					$this.VolumeSpaceAttributes.PercentageSizeUsed = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Available</Name>
+        <GetScriptBlock>
+					try { $this.VolumeSpaceAttributes.SizeAvailable} catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeSpaceAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeSpaceAttributes" }
+					$this.VolumeSpaceAttributes.SizeAvailable = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Dedupe</Name>
+        <GetScriptBlock>
+					try { $this.VolumeSisAttributes.IsSisVolume } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeSisAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeSisAttributes" }
+					$this.VolumeSisAttributes.IsSisVolume = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>FilesUsed</Name>
+        <GetScriptBlock>
+					try { $this.VolumeInodeAttributes.FilesUsed } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeInodeAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeInodeAttributes" }
+					$this.VolumeInodeAttributes.FilesUsed = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>FilesTotal</Name>
+        <GetScriptBlock>
+					try { $this.VolumeInodeAttributes.FilesTotal } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeInodeAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeInodeAttributes" }
+					$this.VolumeInodeAttributes.FilesTotal  = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Aggregate</Name>
+        <GetScriptBlock>
+					try { $this.VolumeIdAttributes.ContainingAggregateName } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeIdAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeIdAttributes" }
+					$this.VolumeIdAttributes.ContainingAggregateName = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+	  <ScriptProperty>
+        <Name>JunctionPath</Name>
+        <GetScriptBlock>
+					try { $this.VolumeIdAttributes.JunctionPath } catch [Exception] { $null }
+				</GetScriptBlock>
+        <SetScriptBlock>
+					if($this.VolumeIdAttributes -eq $null) { Initialize-NcObjectProperty $this -Name "VolumeIdAttributes" }
+					$this.VolumeIdAttributes.JunctionPath = $args[0]
+				</SetScriptBlock>
+      </ScriptProperty>
+	  <ScriptProperty>
+		<Name>IsInfiniteVolume</Name>
+		<GetScriptBlock>
+			try { if( $this.VolumeIdAttributes.Style -eq 'infinitevol' ) { $true } else { $false } } catch [Exception] { $false }
+		</GetScriptBlock>
+	  </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Volume.VolumeCloneInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Name</Name>
+        <ReferencedMemberName>Volume</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Volume.VolumeMoveTargetAggrInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Name</Name>
+        <ReferencedMemberName>AggrName</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Available</Name>
+        <ReferencedMemberName>AvailableSize</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Vserver.VserverInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Vserver</Name>
+        <ReferencedMemberName>VserverName</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Fcp.AliasesInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Alias</Name>
+        <ReferencedMemberName>AliasesAlias</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Wwpn</Name>
+        <ReferencedMemberName>AliasesWwpn</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Exports.ExportRuleInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Vserver</Name>
+        <ReferencedMemberName>VserverName</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Ses.ShelfInfo</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>ShelfBayCount</Name>
+        <GetScriptBlock>if($this.ShelfBayInfo -ne $null) { $this.ShelfBayInfo.BayCount } else { $null }</GetScriptBlock>
+		<SetScriptBlock>
+			if($this.ShelfBayInfo -eq $null) { Initialize-NcObjectProperty $this -Name "ShelfBayInfo" }
+			$this.ShelfBayInfo.BayCount = $args[0]
+		</SetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Qos.QosStreamInfo</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Vserver</Name>
+        <GetScriptBlock>if($this.Characteristics -ne $null -and $this.Characteristics.Length -eq 1) { $this.Characteristics[0].Vserver } else { $null }</GetScriptBlock>
+		<SetScriptBlock>
+			if($this.Characteristics -eq $null) { Initialize-NcObjectProperty $this -Name "Characteristics" -Count 1}
+			$this.Characteristics[0].Vserver = $args[0]
+		</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Volume</Name>
+        <GetScriptBlock>if($this.Characteristics -ne $null -and $this.Characteristics.Length -eq 1) { $this.Characteristics[0].Volume } else { $null }</GetScriptBlock>
+		<SetScriptBlock>
+			if($this.Characteristics -eq $null) { Initialize-NcObjectProperty $this -Name "Characteristics" -Count 1}
+			$this.Characteristics[0].Volume = $args[0]
+		</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Qtree</Name>
+        <GetScriptBlock>if($this.Characteristics -ne $null -and $this.Characteristics.Length -eq 1) { $this.Characteristics[0].Qtree } else { $null }</GetScriptBlock>
+		<SetScriptBlock>
+			if($this.Characteristics -eq $null) { Initialize-NcObjectProperty $this -Name "Characteristics" -Count 1}
+			$this.Characteristics[0].Qtree = $args[0]
+		</SetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>Lun</Name>
+        <GetScriptBlock>if($this.Characteristics -ne $null -and $this.Characteristics.Length -eq 1) { $this.Characteristics[0].Lun } else { $null }</GetScriptBlock>
+		<SetScriptBlock>
+			if($this.Characteristics -eq $null) { Initialize-NcObjectProperty $this -Name "Characteristics" -Count 1}
+			$this.Characteristics[0].Lun = $args[0]
+		</SetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.ConfigBackup.ConfigBackupInfoType</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Created</Name>
+        <GetScriptBlock>if($this.BackupCreationTimeDT -ne $null) { $this.BackupCreationTimeDT.ToShortDateString() }</GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Ldap.LdapClient</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Client</Name>
+			<ReferencedMemberName>LdapClientConfig</ReferencedMemberName>
+		</AliasProperty>
+	  <ScriptProperty>
+        <Name>LdapServers</Name>
+        <GetScriptBlock>
+		$servers = @()
+		if($this.PreferredAdServers -ne $null) { $servers += $this.PreferredAdServers }
+		if($this.Servers -ne $null) { $servers += $this.Servers }
+		$servers
+		</GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Quota.Quota</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Qtree</Name>
+			<ReferencedMemberName>Tree</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Iscsi.IscsiIsnsInfo</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Address</Name>
+			<ReferencedMemberName>IsnsIpAddr</ReferencedMemberName>
+		</AliasProperty>
+		<AliasProperty>
+			<Name>Enabled</Name>
+			<ReferencedMemberName>IsIsnsEnabled</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Flash.FlashThreshold</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Threshold</Name>
+        <GetScriptBlock>
+		if($this.ThresholdUnits -eq "percentage")
+		{
+			"$($this.ThresholdValue)%"
+		}
+		else
+		{
+			"$($this.ThresholdValue) $($this.TimeSlice)"
+		}
+		</GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Disk.DiskSanownDetailInfo</Name>
+    <Members>
+		<AliasProperty>
+			<Name>SerialNumber</Name>
+			<ReferencedMemberName>SerialNo</ReferencedMemberName>
+		</AliasProperty>
+		<AliasProperty>
+			<Name>Failed</Name>
+			<ReferencedMemberName>IsFailed</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.SnapmirrorPolicy.SnapmirrorPolicyInfo</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Name</Name>
+			<ReferencedMemberName>PolicyName</ReferencedMemberName>
+		</AliasProperty>
+		<AliasProperty>
+			<Name>Vserver</Name>
+			<ReferencedMemberName>VserverName</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.LicenseV2.LicenseV2Info</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Expiration</Name>
+			<ReferencedMemberName>ExpirationTimeDT</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Volume.ScrubDetailInfo</Name>
+    <Members>
+		<AliasProperty>
+			<Name>LastScrub</Name>
+			<ReferencedMemberName>LastScrubTimestampDT</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Cifs.CifsLocalUser</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Disabled</Name>
+			<ReferencedMemberName>IsAccountDisabled</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Fpolicy.FpolicyPolicyStatusInfo</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Enabled</Name>
+			<ReferencedMemberName>Status</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Fpolicy.FpolicyServerStatusInfo</Name>
+    <Members>
+		<AliasProperty>
+			<Name>Server</Name>
+			<ReferencedMemberName>FpolicyServer</ReferencedMemberName>
+		</AliasProperty>
+		<AliasProperty>
+			<Name>Status</Name>
+			<ReferencedMemberName>ServerStatus</ReferencedMemberName>
+		</AliasProperty>
+		<AliasProperty>
+			<Name>Type</Name>
+			<ReferencedMemberName>ServerType</ReferencedMemberName>
+		</AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.NetOptions</Name>
+    <Members>
+		<ScriptProperty>
+			<Name>Ipv6Enabled</Name>
+			<GetScriptBlock>
+				if($this.Ipv6OptionsInfo -ne $null) { $this.Ipv6OptionsInfo.Enabled } else { $null }
+			</GetScriptBlock>
+			<SetScriptBlock>
+				if($this.Ipv6OptionsInfo -eq $null) { Initialize-NcObjectProperty $this Ipv6OptionsInfo }
+				
+				$this.Ipv6OptionsInfo.Enabled = $args[0]
+			</SetScriptBlock>
+		</ScriptProperty>
+		<ScriptProperty>
+			<Name>SwitchlessClusterEnabled</Name>
+			<GetScriptBlock>
+				if($this.SwitchlessClusterInfo -ne $null) { $this.SwitchlessClusterInfo.Enabled } else { $null }
+			</GetScriptBlock>
+			<SetScriptBlock>
+				if($this.SwitchlessClusterInfo -eq $null) { Initialize-NcObjectProperty $this SwitchlessClusterInfo }
+				
+				$this.SwtichlessCLusterInfo.Enabled = $args[0]
+			</SetScriptBlock>
+		</ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.SystemPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>CPU</Name>
+        <ReferencedMemberName>AvgProcessorBusy</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>NFS</Name>
+        <ReferencedMemberName>NfsOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>CIFS</Name>
+        <ReferencedMemberName>CifsOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>HTTP</Name>
+        <ReferencedMemberName>HttpOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>FCP</Name>
+        <ReferencedMemberName>FcpOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>iSCSI</Name>
+        <ReferencedMemberName>IscsiOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>NetRcvd</Name>
+        <ReferencedMemberName>NetBytesReceivedPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>NetSent</Name>
+        <ReferencedMemberName>NetBytesSentPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>DiskRd</Name>
+        <ReferencedMemberName>DiskBytesReadPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>DiskWr</Name>
+        <ReferencedMemberName>DiskBytesWrittenPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.IscsiPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>OthOps</Name>
+        <ReferencedMemberName>OtherOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>AvgReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>AvgWriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>OthLat</Name>
+        <ReferencedMemberName>AvgOtherLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Read</Name>
+        <ReferencedMemberName>ReadBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Written</Name>
+        <ReferencedMemberName>WriteBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.CifsPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotOps</Name>
+        <ReferencedMemberName>TotalOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>ReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>WriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotLat</Name>
+        <ReferencedMemberName>TotalLatency</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.VolumePerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotOps</Name>
+        <ReferencedMemberName>TotalOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>ReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>WriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotLat</Name>
+        <ReferencedMemberName>TotalLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Read</Name>
+        <ReferencedMemberName>ReadBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Written</Name>
+        <ReferencedMemberName>WriteBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.LunPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotOps</Name>
+        <ReferencedMemberName>TotalOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>ReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>WriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotLat</Name>
+        <ReferencedMemberName>TotalLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Read</Name>
+        <ReferencedMemberName>ReadBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Written</Name>
+        <ReferencedMemberName>WriteBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>LunPath</Name>
+        <ReferencedMemberName>Name</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.IfnetPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Rcv</Name>
+        <ReferencedMemberName>ReceiveBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RcvPkt</Name>
+        <ReferencedMemberName>ReceivePacketsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RcvMPkt</Name>
+        <ReferencedMemberName>ReceiveMulticastPacketsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RcvDrop</Name>
+        <ReferencedMemberName>ReceivePacketsDroppedPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RcvErr</Name>
+        <ReferencedMemberName>ReceiveErrorsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Snd</Name>
+        <ReferencedMemberName>SendBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>SndPkt</Name>
+        <ReferencedMemberName>SendPacketsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>SndMPkt</Name>
+        <ReferencedMemberName>SendMulticastPacketsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>SndErr</Name>
+        <ReferencedMemberName>SendErrorsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Coll</Name>
+        <ReferencedMemberName>CollisionsPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Ifnet</Name>
+        <ReferencedMemberName>Uuid</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.FcpPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotOps</Name>
+        <ReferencedMemberName>TotalOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>AverageReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>AverageWriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Read</Name>
+        <ReferencedMemberName>ReadBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Written</Name>
+        <ReferencedMemberName>WriteBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.NfsPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>AverageReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>AverageWriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Perf.DiskPerfInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Busy</Name>
+        <ReferencedMemberName>DiskUtilPercent</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>DiskRd</Name>
+        <ReferencedMemberName>ReadBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>DiskWr</Name>
+        <ReferencedMemberName>WriteBytesPerSecond</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdOps</Name>
+        <ReferencedMemberName>ReadOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrOps</Name>
+        <ReferencedMemberName>WriteOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>TotOps</Name>
+        <ReferencedMemberName>TotalOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>QueueOps</Name>
+        <ReferencedMemberName>AverageQueuedOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>PendOps</Name>
+        <ReferencedMemberName>AveragePendingOps</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>RdLat</Name>
+        <ReferencedMemberName>ReadLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>WrLat</Name>
+        <ReferencedMemberName>WriteLatency</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Disk</Name>
+        <ReferencedMemberName>Name</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Cf.TakeoverStatus</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Aggregate</Name>
+        <ReferencedMemberName>TakenOverAggregate</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.FileDirectorySecurity.FileDirectorySecurityPolicyTask</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Index</Name>
+        <ReferencedMemberName>TaskIndexNumber</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.SecuritySsl.VserverSslInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>ClientAuth</Name>
+        <ReferencedMemberName>ClientAuthenticationEnabled</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>ServerAuth</Name>
+        <ReferencedMemberName>ServerAuthenticationEnabled</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.FileserviceAudit.FileserviceAuditConfig</Name>
+    <Members>
+      <ScriptProperty>
+			<Name>Rotate</Name>
+			<GetScriptBlock>
+				if($this.RotateSize -ne $null) {
+					ConvertTo-FormattedNumber $this.RotateSize DataSize "0.0"
+				}
+				elseif($this.RotationScheduleDescription) {
+					$this.RotationScheduleDescription
+				}
+			</GetScriptBlock>
+		</ScriptProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Sectrace.SecurityTraceFilterAttributes</Name>
+    <Members>
+      <ScriptProperty>
+			<Name>IsEnabled</Name>
+			<GetScriptBlock>
+				if($this.Enabled -eq "enabled") {
+					$true
+				}
+				else {
+					$false
+				}
+			</GetScriptBlock>
+		</ScriptProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Nfs.NfsInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>GeneralAccess</Name>
+        <ReferencedMemberName>IsNfsAccessEnabled</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>IsNfsv3</Name>
+        <ReferencedMemberName>IsNfsv3Enabled</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>IsNfsv4</Name>
+        <ReferencedMemberName>IsNfsv40Enabled</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>IsNfsv41</Name>
+        <ReferencedMemberName>IsNfsv41Enabled</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Volume.ContainerInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Value</Name>
+        <ReferencedMemberName>Aggregate</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Vscan.VscanStatusInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Enabled</Name>
+        <ReferencedMemberName>IsVscanEnabled</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Vscan.VscanScannerPoolInfo</Name>
+    <Members>
+      <AliasProperty>
+        <Name>VscanServer</Name>
+        <ReferencedMemberName>Servers</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Name</Name>
+        <ReferencedMemberName>ScannerPool</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Active</Name>
+        <ReferencedMemberName>IsCurrentlyActive</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Vscan.VscanOnAccessPolicyInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>Name</Name>
+        <ReferencedMemberName>PolicyName</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+        <Name>Enabled</Name>
+        <ReferencedMemberName>IsPolicyEnabled</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Vscan.VscanActiveScannerPoolInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>VscanServer</Name>
+        <ReferencedMemberName>Servers</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Aggr.AggrAutobalanceAggregateState</Name>
+    <Members>
+	  <AliasProperty>
+        <Name>Threshold</Name>
+        <ReferencedMemberName>AutobalanceThreshold</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>IsConsidered</Name>
+        <ReferencedMemberName>IsConsideredForBalance</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Aggr.AggrAutobalanceVolumeState</Name>
+    <Members>
+	  <AliasProperty>
+        <Name>Volume</Name>
+        <ReferencedMemberName>VolumeName</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Size</Name>
+        <ReferencedMemberName>VolumeTotalSize</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>IsMoving</Name>
+        <ReferencedMemberName>IsVolumeMoving</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>IsQuiesced</Name>
+        <ReferencedMemberName>IsVolumeQuiesced</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.ClusterPeer.ClusterPeerAuthnOffer</Name>
+    <Members>
+	  <AliasProperty>
+        <Name>StatusOperational</Name>
+        <ReferencedMemberName>AuthStatusOperational</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>StatusAdmin</Name>
+        <ReferencedMemberName>AuthStatusAdmin</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.ClusterPeer.ClusterPeerConnections</Name>
+    <Members>
+	  <AliasProperty>
+        <Name>StatusOperational</Name>
+        <ReferencedMemberName>AuthStatusOperational</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>StatusAdmin</Name>
+        <ReferencedMemberName>AuthStatusAdmin</ReferencedMemberName>
+      </AliasProperty>
+	</Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.NetFailoverGroupInfo</Name>
+    <Members>
+		<ScriptProperty>
+			<Name>Target</Name>
+			<GetScriptBlock>
+				if($this.Node -ne $null -and $this.Port -ne $null) {
+					"$($this.Node):$($this.Port)"
+				}
+				elseif($this.Targets -ne $null) {
+					$this.Targets
+				}
+			</GetScriptBlock>
+		</ScriptProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.NetSubnetInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>Name</Name>
+        <ReferencedMemberName>SubnetName</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Total</Name>
+        <ReferencedMemberName>TotalCount</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>Used</Name>
+        <ReferencedMemberName>UsedCount</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Net.NetArpOperationalInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>Port</Name>
+        <ReferencedMemberName>PortName</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Metrocluster.MetroclusterNodeInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>State</Name>
+        <ReferencedMemberName>ConfigurationState</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Metrocluster.MetroclusterCheckAggregateEligibilityInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>IsEligible</Name>
+        <ReferencedMemberName>IsEligibletoHostAdditionalVolumes</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>ConfigReplicationVolumes</Name>
+        <ReferencedMemberName>HostedConfigurationReplicationVolumes</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+  <Type>
+    <Name>DataONTAP.C.Types.Snapmirror.SnapmirrorHistoryInfo</Name>
+    <Members>
+		<AliasProperty>
+        <Name>Start</Name>
+        <ReferencedMemberName>StartTimeDT</ReferencedMemberName>
+      </AliasProperty>
+	  <AliasProperty>
+        <Name>End</Name>
+        <ReferencedMemberName>EndTimeDT</ReferencedMemberName>
+      </AliasProperty>
+    </Members>
+  </Type>
+</Types>
+<!-- SIG # Begin signature block -->
+<!-- MIIPsQYJKoZIhvcNAQcCoIIPojCCD54CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB -->
+<!-- gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR -->
+<!-- AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUCllPye+9VMqqutLO4sUGoCAo -->
+<!-- uJygggo+MIIFAjCCA+qgAwIBAgIQIpimnAM9kbwAAAAAVWZCLDANBgkqhkiG9w0B -->
+<!-- AQsFADCBtDELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUVudHJ1c3QsIEluYy4xKDAm -->
+<!-- BgNVBAsTH1NlZSB3d3cuZW50cnVzdC5uZXQvbGVnYWwtdGVybXMxOTA3BgNVBAsT -->
+<!-- MChjKSAyMDE1IEVudHJ1c3QsIEluYy4gLSBmb3IgYXV0aG9yaXplZCB1c2Ugb25s -->
+<!-- eTEoMCYGA1UEAxMfRW50cnVzdCBDb2RlIFNpZ25pbmcgQ0EgLSBPVkNTMTAeFw0x -->
+<!-- NzA4MzEwNjEyMjVaFw0xODA5MTEwNjQyMjJaMGIxCzAJBgNVBAYTAlVTMRMwEQYD -->
+<!-- VQQIEwpDYWxpZm9ybmlhMRIwEAYDVQQHEwlTdW5ueXZhbGUxFDASBgNVBAoTC05l -->
+<!-- dEFwcCwgSW5jMRQwEgYDVQQDEwtOZXRBcHAsIEluYzCCASIwDQYJKoZIhvcNAQEB -->
+<!-- BQADggEPADCCAQoCggEBAL2YuyaOt5bzoLtG1TAsNLRtGSFmKTPfkepcsij322fI -->
+<!-- QuWg4c+TgBO2lNoH+UBz9f3SLlcxnmUte9/Leff0IPtKX3N/C9woKP9zS3HvElZ2 -->
+<!-- R5C2lsQA/CmiuILrgtHywFrJqMFgEvWto2foKIdfJdzzed6jYaE0Ier2+GINIoHY -->
+<!-- UymCB3QZxReyHtj9y5Jiazdwhk0ARLb3tleVBz7GU31IZzdmbO6q0mvg5DVfIN7h -->
+<!-- EZ9mT1NMk59g8UbbSSAo0Y8NQN3EhSYeV/cjXM2cSUepHLy8zCHrsr1nm8Qg8LHn -->
+<!-- dD3ByY8Pixa+t2N+DY0Ov94OtlMIusH/e88xvxOlwB0CAwEAAaOCAV8wggFbMA4G -->
+<!-- A1UdDwEB/wQEAwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzBqBggrBgEFBQcBAQRe -->
+<!-- MFwwIwYIKwYBBQUHMAGGF2h0dHA6Ly9vY3NwLmVudHJ1c3QubmV0MDUGCCsGAQUF -->
+<!-- BzAChilodHRwOi8vYWlhLmVudHJ1c3QubmV0L292Y3MxLWNoYWluMjU2LmNlcjAx -->
+<!-- BgNVHR8EKjAoMCagJKAihiBodHRwOi8vY3JsLmVudHJ1c3QubmV0L292Y3MxLmNy -->
+<!-- bDBKBgNVHSAEQzBBMDYGCmCGSAGG+mwKAQMwKDAmBggrBgEFBQcCARYaaHR0cDov -->
+<!-- L3d3dy5lbnRydXN0Lm5ldC9ycGEwBwYFZ4EMAQQwHwYDVR0jBBgwFoAUfhofGhF0 -->
+<!-- XGTJDB+UAav9gWQuoSwwHQYDVR0OBBYEFJJZU7QRe6R2TtZOGcahgwJx3frsMAkG -->
+<!-- A1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggEBAElSDudfVM0r5NB7069aqGnw27KL -->
+<!-- de+5EF2h9d6S94p21Ro/eu0OsUjoNlfWxQKJiC25hh/wJKFCYbLGwwaKYS9Q0Y1t -->
+<!-- +mDvHR9GO7gAsXca7dJf589olN9PV46RyWgSx90d3gTrTLya9AZx3418HdTWEJww -->
+<!-- UUXcahHXGUSnU3CfUCJYahEv4OllkvNdQcRFYRa/RG9qG5Y437c2X5NTUoB2F7Tz -->
+<!-- BiPIsnxcLg3hc8/1/BgvvvoTZaON8Niiunbe09lDbiCxIfOJ63Km3w4/33daNp8Z -->
+<!-- iHhh4L6EXCHCOm2fzBGPPsn46fgK9fydScfleTu7+a+zLow1QUp6GMKF02AwggU0 -->
+<!-- MIIEHKADAgECAggyWOjuVK9cJzANBgkqhkiG9w0BAQsFADCBzzELMAkGA1UEBhMC -->
+<!-- VVMxEDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNjb3R0c2RhbGUxJTAjBgNV -->
+<!-- BAoTHFN0YXJmaWVsZCBUZWNobm9sb2dpZXMsIEluYy4xOjA4BgNVBAsTMWh0dHA6 -->
+<!-- Ly9jZXJ0aWZpY2F0ZXMuc3RhcmZpZWxkdGVjaC5jb20vcmVwb3NpdG9yeS8xNjA0 -->
+<!-- BgNVBAMTLVN0YXJmaWVsZCBTZXJ2aWNlcyBSb290IENlcnRpZmljYXRlIEF1dGhv -->
+<!-- cml0eTAeFw0xNjEyMTMwNzAwMDBaFw0yMTEyMTMwNzAwMDBaMIGRMQswCQYDVQQG -->
+<!-- EwJVUzEQMA4GA1UECBMHQXJpem9uYTETMBEGA1UEBxMKU2NvdHRzZGFsZTElMCMG -->
+<!-- A1UEChMcU3RhcmZpZWxkIFRlY2hub2xvZ2llcywgSW5jLjE0MDIGA1UEAxMrU3Rh -->
+<!-- cmZpZWxkIFNlcnZpY2VzIFRpbWVzdGFtcCBBdXRob3JpdHkgLSBHMTCCASIwDQYJ -->
+<!-- KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMMSt+zDfQd/+EDESIH4xIOLzJkCgOFq -->
+<!-- yWKYMsVjvYH7vCdlU0EAGu2AlzYiIjKbaGYLbQFtOf+ohaiLl6ewX04FImdW6c97 -->
+<!-- 5Uoie+XnMGYOVySnWHIXv/q6fFX7Rgwh50vOMCDuKHCCpx3MrYU5g0kP3J+Psv9j -->
+<!-- E2Nc0jkOeHQadrpVTo8HGCWoz7XCLFIfCdjjWkoDLu4B0/9yehNaC+ZwrOy9cnUE -->
+<!-- NhnE/+0WMIoUdOLkD/Eq24ATVBVXBe7Q3o4/7hzYWPoABigrHpB6q1u1ILpB+Ze2 -->
+<!-- K3rdWz4t93k+yqCybnZVFKuJZy53VS4PDszfiRHfIEZo2TZGBgIVfX8CAwEAAaOC -->
+<!-- AU4wggFKMAwGA1UdEwEB/wQCMAAwDgYDVR0PAQH/BAQDAgbAMBYGA1UdJQEB/wQM -->
+<!-- MAoGCCsGAQUFBwMIMB0GA1UdDgQWBBTFhkohftnytX2hAaysXl3+FYL3vzAfBgNV -->
+<!-- HSMEGDAWgBS0xn8aQ8ybdV0vxEvyi5gQ6fFREDA6BggrBgEFBQcBAQQuMCwwKgYI -->
+<!-- KwYBBQUHMAGGHmh0dHA6Ly9vY3NwLnN0YXJmaWVsZHRlY2guY29tLzBEBgNVHR8E -->
+<!-- PTA7MDmgN6A1hjNodHRwOi8vY3JsLnN0YXJmaWVsZHRlY2guY29tL3JlcG9zaXRv -->
+<!-- cnkvc2Zzcm9vdC5jcmwwUAYDVR0gBEkwRzBFBgtghkgBhv1uAQcYAjA2MDQGCCsG -->
+<!-- AQUFBwIBFihodHRwOi8vY3JsLnN0YXJmaWVsZHRlY2guY29tL3JlcG9zaXRvcnkv -->
+<!-- MA0GCSqGSIb3DQEBCwUAA4IBAQAx1YcChxQWuDRUnv/Xm3XVrC0I3NT7Nlrd8yna -->
+<!-- 578XWTXIY5IMMI0YMTHlNUgejIxrMw5M22QL7IJ+IaXDhSVHCTm63uRauds4mfeP -->
+<!-- MGMyR+kbBRZTB2Z0BMAXK1nuNzyrHAdJcf7cyXktyZt+TF0i2W05p0x49o4ZpR7i -->
+<!-- NXOYwIVxF7+lI3qHmYuCI2afsuOJmHSYImWapbC0rVWfTujj7APM+6Vb40w+oyG/ -->
+<!-- UE2+ypTjA2e/aweEuh8YUKxtAldLdBF6EFI+tvfa/0p048XAv2VWHVj6UOV5WrKE -->
+<!-- U1RrFwtW6TwzWMLpwU0/BxHrMQWdKYogINZ02I+O21xbakY6MYIE3TCCBNkCAQEw -->
+<!-- gckwgbQxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1FbnRydXN0LCBJbmMuMSgwJgYD -->
+<!-- VQQLEx9TZWUgd3d3LmVudHJ1c3QubmV0L2xlZ2FsLXRlcm1zMTkwNwYDVQQLEzAo -->
+<!-- YykgMjAxNSBFbnRydXN0LCBJbmMuIC0gZm9yIGF1dGhvcml6ZWQgdXNlIG9ubHkx -->
+<!-- KDAmBgNVBAMTH0VudHJ1c3QgQ29kZSBTaWduaW5nIENBIC0gT1ZDUzECECKYppwD -->
+<!-- PZG8AAAAAFVmQiwwCQYFKw4DAhoFAKBwMBAGCisGAQQBgjcCAQwxAjAAMBkGCSqG -->
+<!-- SIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3 -->
+<!-- AgEVMCMGCSqGSIb3DQEJBDEWBBSPvdWVUryKI9y99we2NrNPYYJKTTANBgkqhkiG -->
+<!-- 9w0BAQEFAASCAQCRJjCKW2mFi/s2w6nUVju1C4nB/HNML5A3wrQI3So1m5OgGbGr -->
+<!-- kEqMUJHvcIL8ErFl965yuVw+jQ613PQeuxorpB0jN2slCCXepot9NWzcyxc/G8UK -->
+<!-- Z77U875m+VeBetluTgwCLM1wLtEMQly4rwhYM2wGUmbhXxVUs3RCeo1Z9E3RixZE -->
+<!-- FOltCLEShAf+A8IM2K3cWxKXxIt3S8UWGtqLHvz69c7Xzrwv883W75JAQITm1ZCw -->
+<!-- l+JPYsfcuE4ZA3Y3kOpBmASunj3HFdW2VKhZBcwF+vqCOS73TSAEXafOhaYRslL3 -->
+<!-- raTk3F3mdg8JDYexPUUuTKWRmzNB8vAm9SmAoYICdjCCAnIGCSqGSIb3DQEJBjGC -->
+<!-- AmMwggJfAgEBMIHcMIHPMQswCQYDVQQGEwJVUzEQMA4GA1UECBMHQXJpem9uYTET -->
+<!-- MBEGA1UEBxMKU2NvdHRzZGFsZTElMCMGA1UEChMcU3RhcmZpZWxkIFRlY2hub2xv -->
+<!-- Z2llcywgSW5jLjE6MDgGA1UECxMxaHR0cDovL2NlcnRpZmljYXRlcy5zdGFyZmll -->
+<!-- bGR0ZWNoLmNvbS9yZXBvc2l0b3J5LzE2MDQGA1UEAxMtU3RhcmZpZWxkIFNlcnZp -->
+<!-- Y2VzIFJvb3QgQ2VydGlmaWNhdGUgQXV0aG9yaXR5AggyWOjuVK9cJzAJBgUrDgMC -->
+<!-- GgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcN -->
+<!-- MTcxMDI2MTQ1MzA4WjAjBgkqhkiG9w0BCQQxFgQUHNVNA39cJoOvkh50s/riWqvM -->
+<!-- lwMwDQYJKoZIhvcNAQEBBQAEggEAdKdP9bnGrLwlx0UuhewK+B1QIydLZwdPh4nd -->
+<!-- xFQHTpS4LqImpkDWVOLfzBKwqeH6DOtQzfsgYcPIyJK3yuw+9qmwMGNCMVxZV/CM -->
+<!-- LrtL4l6gJnC6+C4zN2RbFfwTYglADlWm56ULbUzNKDwGejao6BAbyMD3cCyjWjI0 -->
+<!-- sdzNHPyyvEpeyRzbTZ3r2km4IkmIB2ey7V+O7ReZ6JkpRVFTWXErzeU3aprPHEMI -->
+<!-- G1Jcknnuh3qpH81hCnFSS+T44AoYw5IPHiERu/HmdfNiis7YaaJO9mKF6Qs4o1+G -->
+<!-- hMAZk7gwgwj0z1EOrC7jFAAdci3QPe63cO++Td26wEQbpF9kyw== -->
+<!-- SIG # End signature block -->

@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Set-NaSnaplockRetentionTime</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Set-NaSnaplockRetentionTime</H2><PRE><br>NAME<br>    Set-NaSnaplockRetentionTime<br>    <br>SYNOPSIS<br>    Set the SnapLock retention attributes of a file.  The retention time is set <br>    to the given DateTime.<br>    <br>SYNTAX<br>    Set-NaSnaplockRetentionTime [-Path] &lt;String&gt; [[-RetentionTime] &lt;DateTime&gt;] <br>    [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Set the SnapLock retention attributes of a file.  The retention time is set <br>    to the given DateTime.  If no retention time is specified, the retention <br>    time is calculated as follows:  Expiration time = current time + <br>    snaplock_default_period.<br>    <br><br>PARAMETERS<br>    -Path &lt;String&gt;<br>        Absolute path of the file to set retention time for.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -RetentionTime &lt;DateTime&gt;<br>        Date and time in which the file will be eligible for deletion.  If the <br>        given time does not comply with the snaplock_minimum_period or the <br>        snaplock_maximum_period of the volume it will be adjusted.<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Snaplock.FileRetentionInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: snaplock<br>        API: file-set-snaplock-retention-time<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Set-NaSnaplockRetentionTime /vol/snaplock_entvol0/file2.txt <br>    (Get-NaSnaplockComplianceClock).ComplianceCLock.AddYears(28)<br>    <br>    <br>    Set the retention time for the file /vol/snaplock_entvol0/file2.txt to be <br>    28 years from the current time.<br>    <br>    <br>    <br>    Pathname                                               SnaplockType     <br>    RetentionTimeDT<br>    --------                                               ------------     <br>    ---------------<br>    /vol/snaplock_entvol0/file2.txt                        SLE              <br>    6/12/2039 4:22:50 AM<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaSnaplockRetentionTime.html">Get-NaSnaplockRetentionTime</A> <br>    <A HREF="cmdlet_Get-NaSnaplockComplianceClock.html">Get-NaSnaplockComplianceClock</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

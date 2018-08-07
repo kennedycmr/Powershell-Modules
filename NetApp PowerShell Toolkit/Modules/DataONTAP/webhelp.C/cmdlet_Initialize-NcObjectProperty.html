@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Initialize-NcObjectProperty</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Initialize-NcObjectProperty</H2><PRE><br>NAME<br>    Initialize-NcObjectProperty<br>    <br>SYNOPSIS<br>    Set one or more properties on Toolkit objects.<br>    <br>SYNTAX<br>    Initialize-NcObjectProperty [-Object] &lt;Object&gt; [[-Name] &lt;String[]&gt;] <br>    [[-Count] &lt;Int32&gt;] [-All] [-Recurse] [-PassThru] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Set one or more properties on Toolkit objects.<br>    <br>    A best practice for using the Toolkit is not to directly instantiate any of <br>    the types returned by Toolkit cmdlets.  However, some of the advanced <br>    queries and object manipulation features of clustered Data ONTAP require <br>    sending these types back to the controller.<br>    <br>    To support these features, the Toolkit provides means of creating the <br>    needed objects and selectively filling in some or all of their properties.  <br>    Value properties, such as strings and integers, may be set directly.  But <br>    embedded reference types should be created using this cmdlet.<br>    <br><br>PARAMETERS<br>    -Object &lt;Object&gt;<br>        The object to modify.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Name &lt;String[]&gt;<br>        The name of one or more properties to set.<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Count &lt;Int32&gt;<br>        If the named field is an array, specify Count to fill the array with <br>        that number of objects.<br>        <br>        Required?                    false<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -All<br>        Specify to initialize all reference-type properties in the object.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Recurse<br>        Specify to fill in not only the named property, but all nested objects <br>        as well.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -PassThru<br>        If specified, the modified object is written back to the pipeline.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    System.Object<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: toolkit<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;$q = Get-NcVol -Template<br>    Initialize-NcObjectProperty $q VolumeIdAttributes<br>    $q.VolumeIdAttributes.Name = &quot;vol1|vol2&quot;<br>    $q.VolumeIdAttributes.OwningVserverName = &quot;vserver1&quot;<br>    $a = Get-NcVol -Template<br>    Initialize-NcObjectProperty $a VolumeIdAttributes<br>    $a.VolumeIdAttributes.Comment = &quot;Database volumes&quot;<br>    Update-NcVol -Query $q -Attributes $a<br>    <br>    <br>    Using this cmdlet and others, execute an advanced query to set the comment <br>    field on multiple volumes.<br>    <br>    <br>    <br>    NcController : 10.61.172.155<br>    SuccessCount : 2<br>    FailureCount : 0<br>    SuccessList  : {vol1, vol2}<br>    FailureList  : {}<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NcVol.html">Get-NcVol</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

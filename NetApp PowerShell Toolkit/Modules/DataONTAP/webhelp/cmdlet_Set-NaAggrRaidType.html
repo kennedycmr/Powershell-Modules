@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Set-NaAggrRaidType</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Set-NaAggrRaidType</H2><PRE><br>NAME<br>    Set-NaAggrRaidType<br>    <br>SYNOPSIS<br>    <br>    <br>SYNTAX<br>    Set-NaAggrRaidType [-Name] &lt;String&gt; [-RaidType] &lt;String&gt; [-DiskType <br>    &lt;String&gt;] [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Modify the RAID type for the given aggregate to the specified RaidType. <br>    This cmdlet can also selectively change the RAID type of specific raid <br>    groups in the aggregate based on the specified DiskType. The change remains <br>    effective even if the filer is rebooted.  This cmdlet does not support <br>    modifying options of a striped aggregate.<br>    <br><br>PARAMETERS<br>    -Name &lt;String&gt;<br>        Name or UUID of the aggregate whose option is to be set.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -RaidType &lt;String&gt;<br>        The type of RAID group used for this aggregate.P ossible values: <br>        &quot;raid4&quot;,&quot;raid_dp&quot;<br>        <br>        The &quot;raid4&quot; setting  provides one parity disk per RAID group, while <br>        &quot;raid_dp&quot; provides two.  Changing this option immediately changes the <br>        RAID group type for the RAID groups in the aggregate.  When upgrading <br>        RAID groups from &quot;raid4&quot; to &quot;raid_dp&quot;, each RAID group begins a <br>        reconstruction onto a spare disk allocated for the second &quot;dparity&quot; <br>        parity disk.<br>        <br>        Required?                    true<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -DiskType &lt;String&gt;<br>        Type of disks to use : ATA, BSAS, FCAL, FSAS, LUN, SAS, SATA, or SSD.  <br>        This option is required if we want to change the raid type of raid <br>        groups created out of the specified disks only.  Otherwise, if this is <br>        not specified then the raid type for all raid groups in the aggregate <br>        would change.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Aggr.AggrInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: aggr<br>        API: aggr-modify-raid-type<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Set-NaAggrRaidType -Name aggr1 -RaidType raid_dp<br>    <br>    <br>    Change aggr1 to raid_dp.<br>    <br>    <br>    <br>    Name            State       TotalSize  Used  Available Disks RaidType <br>    RaidSize MirrorStatus     FilesUsed FilesTotal<br>    ----            -----       ---------  ----  --------- ----- -------- <br>    -------- ------------     --------- ----------<br>    aggr1           online         2.9 TB    1%     2.8 TB   8   raid_dp     16 <br>       unmirrored              96        31k<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaAggr.html">Get-NaAggr</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

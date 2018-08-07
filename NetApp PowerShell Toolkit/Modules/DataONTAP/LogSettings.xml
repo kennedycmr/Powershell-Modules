@@ -1,0 +1,51 @@
+<log4net>
+
+  <appender name="ColoredConsoleAppender" type="log4net.Appender.ColoredConsoleAppender">
+    <mapping>
+      <level value="ERROR" />
+      <foreColor value="White" />
+      <backColor value="Red, HighIntensity" />
+    </mapping>
+    <mapping>
+      <level value="WARN" />
+      <backColor value="Yellow" />
+    </mapping>
+    <mapping>
+      <level value="DEBUG" />
+      <backColor value="Green" />
+    </mapping>
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date %-5level %logger - %message%newline" />
+    </layout>
+  </appender>
+  
+  <appender name="FileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="logs\PSTK.Debug.Log" />
+    <appendToFile value="true" />
+    <lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="5" />
+    <maximumFileSize value="10MB" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %level %logger - %message%newline" />
+    </layout>
+  </appender>
+  
+  <!-- Set the logger levels -->
+  <logger name="DataONTAP.PowerShell">
+    <level value="OFF" />
+    <appender-ref ref="ColoredConsoleAppender" />
+  </logger>
+  <logger name="DataONTAP.C.PowerShell">
+    <level value="OFF" />
+    <appender-ref ref="ColoredConsoleAppender" />
+  </logger>
+  <logger name="DataONTAP.HostUtilities">
+    <level value="OFF" />
+    <appender-ref ref="ColoredConsoleAppender" />
+  </logger>
+  <logger name="NetApp.Ontapi">
+    <level value="OFF" />
+    <appender-ref ref="ColoredConsoleAppender" />
+  </logger>
+</log4net>

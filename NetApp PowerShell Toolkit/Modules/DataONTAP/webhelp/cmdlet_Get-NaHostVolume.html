@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaHostVolume</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaHostVolume</H2><PRE><br>NAME<br>    Get-NaHostVolume<br>    <br>SYNOPSIS<br>    Get Windows volume information.<br>    <br>SYNTAX<br>    Get-NaHostVolume [[-Path] &lt;String&gt;] [&lt;CommonParameters&gt;]<br>    <br>    Get-NaHostVolume [-VdsId] &lt;Guid&gt; [&lt;CommonParameters&gt;]<br>    <br>    Get-NaHostVolume [-DiskIndex] &lt;UInt32&gt; [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get Windows volume information.<br>    <br>    This cmdlet must be run with administrative privileges.<br>    <br><br>PARAMETERS<br>    -Path &lt;String&gt;<br>        The mount point (i.e. G:, <br>        \\?\Volume{12345678-abcd-1234-abcd-1234567890ab}\) or a path to any <br>        file on the volume to process<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -VdsId &lt;Guid&gt;<br>        The Guid object which uniquely identifies the volume in VDS.  Note that <br>        this is not the same as the volume guid path.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -DiskIndex &lt;UInt32&gt;<br>        A windows disk index/number<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.PowerShell.SDK.Cmdlets.Toolkit.Windows.HostVolume<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: host<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaHostVolume<br>    <br>    <br>    Get all Windows volumes.<br>    <br>    <br>    <br>    MountPoints                    Disk       Size GuidPaths<br>    -----------                    ----       ---- ---------<br>    {}                                0   100.0 MB <br>    {\\?\Volume{6c208c1f-2a50-11e0-9070-806e6f6e6963}\}<br>    {C:\}                             0    49.9 GB <br>    {\\?\Volume{6c208c20-2a50-11e0-9070-806e6f6e6963}\}<br>    {S:\}                             2     5.0 GB <br>    {\\?\Volume{24385e54-d340-11e0-ad95-00155da1ce00}\, \\?\Volume{f4db2c...<br>    {E:\}                             4    10.0 GB <br>    {\\?\Volume{20a7fb8e-f8e4-11e0-949b-00155da1ce00}\}<br>    {F:\}                             5  1021.0 MB <br>    {\\?\Volume{20a7fe7b-f8e4-11e0-949b-00155da1ce00}\}<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Get-NaHostVolume -DiskIndex 0<br>    <br>    <br>    Get all volumes located on disk 0.<br>    <br>    <br>    <br>    MountPoints                    Disk       Size GuidPaths<br>    -----------                    ----       ---- ---------<br>    {}                                0   100.0 MB <br>    {\\?\Volume{6c208c1f-2a50-11e0-9070-806e6f6e6963}\}<br>    {C:\}                             0    49.9 GB <br>    {\\?\Volume{6c208c20-2a50-11e0-9070-806e6f6e6963}\}<br>    <br>    <br>    <br>    --------------  Example 3 --------------<br>    <br>    C:\PS&gt;Get-NaHostVolume C:\<br>    <br>    <br>    Get a specific volume by drive letter.<br>    <br>    <br>    <br>    MountPoints                    Disk       Size GuidPaths<br>    -----------                    ----       ---- ---------<br>    {C:\}                             0    49.9 GB <br>    {\\?\Volume{6c208c20-2a50-11e0-9070-806e6f6e6963}\}<br>    <br>    <br>    <br>    --------------  Example 4 --------------<br>    <br>    C:\PS&gt;Get-NaHostVolume &quot;\\?\Volume{6c208c20-2a50-11e0-9070-806e6f6e6963}\&quot;<br>    <br>    <br>    Get a volume by volume guid path<br>    <br>    <br>    <br>    MountPoints                    Disk       Size GuidPaths<br>    -----------                    ----       ---- ---------<br>    {C:\}                             0    49.9 GB <br>    {\\?\Volume{6c208c20-2a50-11e0-9070-806e6f6e6963}\}<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    Get-NaHostDisk <br>    New-NaHostVolume <br>    Set-NaHostVolumeSize <br>    Remove-NaHostVolume <br>    Mount-NaHostVolume <br>    Dismount-NaHostVolume <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

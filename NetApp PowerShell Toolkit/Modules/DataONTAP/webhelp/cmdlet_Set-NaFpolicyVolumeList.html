@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Set-NaFpolicyVolumeList</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Set-NaFpolicyVolumeList</H2><PRE><br>NAME<br>    Set-NaFpolicyVolumeList<br>    <br>SYNOPSIS<br>    Manipulate a list of volumes in an exclude or include set.<br>    <br>SYNTAX<br>    Set-NaFpolicyVolumeList [-Name] &lt;String&gt; [-ListType] &lt;String&gt; [[-Volumes] <br>    &lt;String[]&gt;] [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Manipulate a list of volumes in an exclude or include set.  This limits the <br>    set of volumes for which client requests trigger (include) or suppress <br>    (exclude) fpolicy processing for the provided policy. The list provided <br>    will replace the list currently in place, if any. Note that if a policy has <br>    both an exclude list and an include list, the include list is ignored by <br>    the filer.<br>    <br><br>PARAMETERS<br>    -Name &lt;String&gt;<br>        Name of the fpolicy to set the volume list for.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -ListType &lt;String&gt;<br>        Defines to which set (exclude or include) a list will be applied. <br>        Possible values: &quot;exclude&quot;, &quot;include&quot;.<br>        <br>        Required?                    true<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Volumes &lt;String[]&gt;<br>        List of volume specifications (including wild cards). The volumes are <br>        case insensitive. If no volume list is provided, then the list will be <br>        reset to an empty list. Supported wild card values: &quot;?&quot; to match any <br>        character and &quot;*&quot; to match any number of characters. Example <br>        specifications: vol0 vol? users*<br>        <br>        Required?                    false<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Fpolicy.PolicyInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: fpolicy<br>        API: fpolicy-volume-list-set<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Set-NaFpolicyVolumeList policy2 include vol0 tmp1 | <br>    <A HREF="cmdlet_Get-NaFpolicyVolumeList.html">Get-NaFpolicyVolumeList</A><br>    <br>    <br>    Sets the include volume list for policy2 to {vol0, tmp1} then gets the <br>    volume list for policy2.<br>    <br>    <br>    <br>    Name    : policy2<br>    Include : {vol0, tmp1}<br>    Exclude : {}<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Set-NaFpolicyVolumeList policy2 include | Get-NaFpolicyVolumeList<br>    <br>    <br>    Resets the include volume list for fpolicy fpolicy2 to an empty list then <br>    gets the volume list for fpolicy fpolicy2.<br>    <br>    <br>    <br>    Name    : policy2<br>    Include : {}<br>    Exclude : {}<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaFpolicyVolumeList.html">Get-NaFpolicyVolumeList</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

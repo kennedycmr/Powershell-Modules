@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Start-NaReallocateMeasure</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Start-NaReallocateMeasure</H2><PRE><br>NAME<br>    Start-NaReallocateMeasure<br>    <br>SYNOPSIS<br>    Starts a new measurement-only reallocate job.<br>    <br>SYNTAX<br>    Start-NaReallocateMeasure [-Path] &lt;String&gt; [-Threshold &lt;Int32&gt;] [-Interval <br>    &lt;String&gt;] [-RunOnce] [-LogFile &lt;String&gt;] [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Starts a new measurement-only reallocate job.<br>    <br><br>PARAMETERS<br>    -Path &lt;String&gt;<br>        Path to large file, LUN or volume to measure optimization on, starting <br>        with /vol/.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Threshold &lt;Int32&gt;<br>        The allocation threshold before path is regarded as needing <br>        optimization.  A larger value indicates the file or LUN can be more <br>        fragmented.  Range: [3..10]<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Interval &lt;String&gt;<br>        The interval between repeated scans.  The format is numX, where X is m, <br>        h or d, indicating minutes, hours or days.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -RunOnce<br>        If true, run the scan once then exit.  Interval and RunOnce are <br>        mutually exclusive<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -LogFile &lt;String&gt;<br>        Path to a full name on the appliance where information about the most <br>        recent measurement made will be logged, such as <br>        &quot;/vol/logvol/measurelog.txt&quot;.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Reallocate.ReallocateJobInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: reallocate<br>        API: reallocate-measure<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaLun /vol/opalis/w2k3OpalisVM | Start-NaReallocateMeasure <br>    -Threshold 3 -RunOnce -LogFile /vol/vol0/reallocLog.txt<br>    <br>    <br>    Begin the measure-only reallocate job on LUN &#39;w2k3OpalisVM&#39;.<br>    <br>    <br>    <br>    Flags              : measure_only<br>    Interval           : n/a<br>    IntervalTS         :<br>    LayoutFactor       : -1<br>    MeasureLogfile     : /vol/vol0/reallocLog.txt<br>    MeasureOnly        : True<br>    Path               : /vol/opalis/w2k3OpalisVM<br>    ScanDetail         :<br>    Schedule           : n/a<br>    State              : Checking<br>    Threshold          : 1<br>    ThresholdSpecified : True<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaReallocateJobs.html">Get-NaReallocateJobs</A> <br>    <A HREF="cmdlet_Stop-NaReallocate.html">Stop-NaReallocate</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

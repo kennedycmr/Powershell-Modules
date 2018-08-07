@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Format-NaHostVolume</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Format-NaHostVolume</H2><PRE><br>NAME<br>    Format-NaHostVolume<br>    <br>SYNOPSIS<br>    Perform a quick NTFS format on an existing Windows volume.  Optionally, <br>    this can trigger a reclaim of any data previously held by the volume.<br>    <br>SYNTAX<br>    Format-NaHostVolume [-Path] &lt;String&gt; [[-Label] &lt;String&gt;] <br>    [[-AllocationUnitSize] &lt;Int32&gt;] [-Reclaim] [-Force] [-UnmapSize &lt;String&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    Format-NaHostVolume [-VdsId] &lt;Guid&gt; [[-Label] &lt;String&gt;] <br>    [[-AllocationUnitSize] &lt;Int32&gt;] [-Reclaim] [-Force] [-UnmapSize &lt;String&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Perform a quick NTFS format on an existing Windows volume.  Optionally, <br>    this can trigger a reclaim of any data previously held by the volume.<br>    <br>    <br>    This cmdlet must be run with administrative privileges.<br>    <br><br>PARAMETERS<br>    -Path &lt;String&gt;<br>        The mount point (i.e. G:, <br>        \\?\Volume{12345678-abcd-1234-abcd-1234567890ab}\) or a path to any <br>        file on the volume to process<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Label &lt;String&gt;<br>        The label to assign the volume<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -AllocationUnitSize &lt;Int32&gt;<br>        The allocation unit (cluster) size for the volume.  Valid values are <br>        4KB, 8KB, 16KB, 32KB, and 64KB<br>        <br>        Required?                    false<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Reclaim<br>        Free any blocks which formerly occupied the space used by the new <br>        volume.  This option is only supported on Windows Vista sp1, Server <br>        2008 or later.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Force<br>        Continue even if volume is in use. This might cause unexpected errors <br>        in any application using this volume.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -UnmapSize &lt;String&gt;<br>        <br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -VdsId &lt;Guid&gt;<br>        The Guid object which uniquely identifies the volume in VDS.  Note that <br>        this is not the same as the volume guid path.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.PowerShell.SDK.Cmdlets.Toolkit.Windows.HostVolume<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: host<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Format-NaHostVolume F:\<br>    <br>    <br>    Format the volume mounted at drive F:\ with default options.<br>    <br>    <br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Format-NaHostVolume <br>    &quot;\\?\Volume{20a7fe7b-f8e4-11e0-949b-00155da1ce00}\&quot; -Label &quot;DB Logs&quot; <br>    -Reclaim<br>    <br>    <br>    Format a volume by Guid path with a file system label.  Reclaim any <br>    previously used space on the storage controller.<br>    <br>    <br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    New-NaHostVolume <br>    Remove-NaHostVolume <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Invoke-NcMetroclusterHeal</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Invoke-NcMetroclusterHeal</H2><PRE><br>NAME<br>    Invoke-NcMetroclusterHeal<br>    <br>SYNOPSIS<br>    Heal aggregates and partner roots in preparation for a DR switchback.<br>    <br>SYNTAX<br>    Invoke-NcMetroclusterHeal -Aggregates [-StartOnNodeAndSkipNodeVersionChecks <br>    &lt;String&gt;] [-Controller &lt;NcController[]&gt;] [-ZapiRetryCount &lt;Int32&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    Invoke-NcMetroclusterHeal -RootAggregates <br>    [-StartOnNodeAndSkipNodeVersionChecks &lt;String&gt;] [-Controller <br>    &lt;NcController[]&gt;] [-ZapiRetryCount &lt;Int32&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Heal aggregates and partner roots in preparation for a DR switchback.<br>    <br>    Healing of aggregates and partner roots is done in two phases by the admin. <br>    DR partner nodes must be powered off and remote disk shelves must be <br>    powered on before calling this cmdlets.<br>    <br>    A job will be spawned to operate on the MetroCluster and the job id will be <br>    returned. The progress of the job can be tracked using the job cmdlets.<br>    <br><br>PARAMETERS<br>    -Aggregates<br>        If specified, invoke the first healing phase.  The first phase heals <br>        aggregates by resyncing mirrored plexes and replaying the nvlogs of <br>        non-mirrored aggregates.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -StartOnNodeAndSkipNodeVersionChecks &lt;String&gt;<br>        Specify on which Node job starts and skip Node Version checks<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NcController[]&gt;<br>        A clustered Data ONTAP controller to receive this cmdlet, as embodied <br>        by an NcController object.  This parameter is returned by the <br>        Connect-NcController cmdlet.  If not specified, the value in the global <br>        variable CurrentNcController is used.  In the latter case, if <br>        CurrentNcController contains a collection of NcController objects, this <br>        cmdlet is invoked on each controller in succession.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -ZapiRetryCount &lt;Int32&gt;<br>        <br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -RootAggregates<br>        If specified, invoke the second healing phase.  The second phase heals <br>        the root aggregates of partner nodes.<br>        <br>        Required?                    true<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.C.PowerShell.SDK.Cmdlets.JobStartResult<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: metrocluster<br>        API: metrocluster-heal<br>        Family: cluster<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Invoke-NcMetroclusterHeal -Aggregates<br>    <br>    <br>    Start the aggregates phase of the MetroCluster heal operation.<br>    <br>    <br>    <br>    NcController : 10.63.10.33<br>    ErrorCode    : <br>    ErrorMessage : <br>    JobId        : 24<br>    JobVserver   : <br>    Status       : in_progress<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Invoke-NcMetroclusterHeal -RootAggregates<br>    <br>    <br>    Start the root aggregates phase of the MetroCluster heal operation.<br>    <br>    <br>    <br>    NcController : 10.63.10.33<br>    ErrorCode    : <br>    ErrorMessage : <br>    JobId        : 25<br>    JobVserver   : <br>    Status       : in_progress<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NcJob.html">Get-NcJob</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

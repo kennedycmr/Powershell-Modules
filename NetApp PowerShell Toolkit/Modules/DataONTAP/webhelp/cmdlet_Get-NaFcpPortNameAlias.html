@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaFcpPortNameAlias</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaFcpPortNameAlias</H2><PRE><br>NAME<br>    Get-NaFcpPortNameAlias<br>    <br>SYNOPSIS<br>    Get the list of WWPN for a given alias or an alias for for a given WWPN or <br>    complete list of all current alias-WWPN mappings.<br>    <br>SYNTAX<br>    Get-NaFcpPortNameAlias [-PortName &lt;String&gt;] [-Alias &lt;String&gt;] [-Controller <br>    &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get the list of WWPN for a given alias or an alias for for a given WWPN or <br>    complete list of all current alias-WWPN mappings.<br>    <br><br>PARAMETERS<br>    -PortName &lt;String&gt;<br>        WWPN for which all aliases will be returned. When supplied all aliases <br>        for that WWPN will be returned. Otherwise, all aliases with their WWPNs <br>        present in the system will be returned.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Alias &lt;String&gt;<br>        Alias for a WWPN is the 32-character alias that may contain A-Z, a-z, <br>        0-9, _,-,.,{,} and no spaces. When supplied, the alias with the <br>        corresponding WWPN will be returned. Otherwise, all aliases with their <br>        WWPNs present in the system will be returned.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Fcp.AliasesInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: fcp<br>        API: fcp-wwpnalias-get-alias-info<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaFcpPortNameAlias -Alias port1<br>    <br>    <br>    Get the WWPN having the alias &#39;port1&#39;.<br>    <br>    <br>    <br>    AliasesAlias                            AliasesWwpn<br>    ------------                            -----------<br>    port1                                   50:0a:09:81:97:09:3b:1f<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Get-NaFcpPortNameAlias -PortName 50:0a:09:81:97:09:3b:1f<br>    <br>    <br>    Get the alias for the specified WWPN.<br>    <br>    <br>    <br>    AliasesAlias                            AliasesWwpn<br>    ------------                            -----------<br>    port1                                   50:0a:09:81:97:09:3b:1f<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Set-NaFcpPortNameAlias.html">Set-NaFcpPortNameAlias</A> <br>    <A HREF="cmdlet_Clear-NaFcpPortNameAlias.html">Clear-NaFcpPortNameAlias</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

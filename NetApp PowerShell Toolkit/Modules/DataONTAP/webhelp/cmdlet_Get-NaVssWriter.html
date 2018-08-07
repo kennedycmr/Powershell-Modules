@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaVssWriter</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaVssWriter</H2><PRE><br>NAME<br>    Get-NaVssWriter<br>    <br>SYNOPSIS<br>    Get a list of available VSS writers on the current system.<br>    <br>SYNTAX<br>    Get-NaVssWriter [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get a list of available VSS writers on the current system.<br>    <br><br>PARAMETERS<br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.HostUtilities.Vss.VssWriter<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        category: vss<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaVssWriter<br>    <br>    <br>    Get a list of available VSS writers on the current system.<br>    <br>    <br>    <br>    Name                            WriterId                             <br>    WriterInstanceId                      State<br>    ----                            --------                             <br>    ----------------                      -----<br>    Task Scheduler Writer           d61d61c8-d73a-4eee-8cdd-f6f9786b7124 <br>    1bddd48e-5052-49db-9b07-b96f96727e6b STABLE<br>    VSS Metadata Store Writer       75dfb225-e2e4-4d39-9ac9-ffaff65ddf06 <br>    088e7a7d-09a8-4cc6-a609-ad90e75ddc93 STABLE<br>    Performance Counters Writer     0bada1de-01a9-4625-8278-69e735f39dd2 <br>    f0086dda-9efc-47c5-8eb6-a944c3d09381 STABLE<br>    ASR Writer                      be000cbe-11fe-4426-9c58-531aa6355fc4 <br>    32457a2b-07fb-4b14-8741-01e35e632060 STABLE<br>    SqlServerWriter                 a65faa63-5ea8-4ebc-9dbd-a0c4db26912a <br>    967e2b4d-c711-496f-be80-0e7c326a31d5 STABLE<br>    WMI Writer                      a6ad56c2-b509-4e6c-bb19-49d8f43532f0 <br>    9441b829-3997-477b-924a-d7214e3e0335 STABLE<br>    BITS Writer                     4969d978-be47-48b0-b100-f328f07ac1e0 <br>    aaab528d-9f49-434b-b414-0e43a4433089 STABLE<br>    IIS Config Writer               2a40fd15-dfca-4aa8-a654-1f8c654603f6 <br>    bb090708-fe61-45dd-90f9-4f6df8425199 STABLE<br>    Registry Writer                 afbab4a2-367d-4d15-a586-71dbb18f8485 <br>    4b56ea12-d805-4767-814e-6c4f86905b28 STABLE<br>    COM+ REGDB Writer               542da469-d3e1-473c-9f4f-7847f01fc64f <br>    36dc29f5-6f07-4901-a8e4-2be0d258cf09 STABLE<br>    Shadow Copy Optimization Writer 4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f <br>    bff08e91-9a7c-4228-8312-c6ce45cecee2 STABLE<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    Get-NaVssProvider <br>    Get-NaVssSnapshot <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

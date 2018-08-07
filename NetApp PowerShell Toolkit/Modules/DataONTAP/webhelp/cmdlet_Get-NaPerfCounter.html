@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaPerfCounter</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaPerfCounter</H2><PRE><br>NAME<br>    Get-NaPerfCounter<br>    <br>SYNOPSIS<br>    Get information about the counters of an object.<br>    <br>SYNTAX<br>    Get-NaPerfCounter [-Name] &lt;String&gt; [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get information about the counters of an object.  This information is <br>    static and independent of any particular instance of the object. It <br>    includes counter names and descriptions, as well as properties which are <br>    necessary to to interpret counter values.<br>    <br><br>PARAMETERS<br>    -Name &lt;String&gt;<br>        Name of the object to get counter information for.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Perf.CounterInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: perf<br>        API: perf-object-counter-list-info<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaPerfCounter processor<br>    <br>    <br>    Get the performance counters available for the &#39;processor&#39; object.<br>    <br>    <br>    <br>    BaseCounter    : processor_elapsed_time<br>    Desc           : Percentage of elapsed time that the processor is executing <br>    non<br>                     -idle processes<br>    Labels         :<br>    Name           : processor_busy<br>    PrivilegeLevel : basic<br>    Properties     : percent<br>    Type           :<br>    Unit           : percent<br>    <br>    BaseCounter    :<br>    Desc           : Wall-clock time since boot used for calculating processor <br>    util<br>                     ization<br>    Labels         :<br>    Name           : processor_elapsed_time<br>    PrivilegeLevel : basic<br>    Properties     : delta,no-display<br>    Type           :<br>    Unit           : none<br>    <br>    BaseCounter    :<br>    Desc           : Number of sk switches per second<br>    Labels         :<br>    Name           : sk_switches<br>    PrivilegeLevel : diag<br>    Properties     : rate<br>    Type           :<br>    Unit           : per_sec<br>    <br>    BaseCounter    :<br>    Desc           : Number of context switches per second<br>    Labels         :<br>    Name           : hard_switches<br>    PrivilegeLevel : diag<br>    Properties     : rate<br>    Type           :<br>    Unit           : per_sec<br>    <br>    BaseCounter    : processor_elapsed_time<br>    Desc           : Array of processor time in percentage spent in various <br>    domains<br>    Labels         : <br>    {idle,kahuna,storage,exempt,raid,target,netcache,netcache2,cif<br>                     <br>    s,wafl_exempt,wafl_xcleaner,sm_exempt,cluster,protocol,nwk_exc<br>                     <br>    lusive,nwk_exempt,nwk_legacy,nwk_ctx1,nwk_ctx2,nwk_ctx3,nwk_ct<br>                     x4}<br>    Name           : domain_busy<br>    PrivilegeLevel : diag<br>    Properties     : percent<br>    Type           : array<br>    Unit           : percent<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaPerfData.html">Get-NaPerfData</A> <br>    <A HREF="cmdlet_Get-NaPerfInstance.html">Get-NaPerfInstance</A> <br>    <A HREF="cmdlet_Get-NaPerfObject.html">Get-NaPerfObject</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

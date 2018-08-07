@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Resume-NaVolMove</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Resume-NaVolMove</H2><PRE><br>NAME<br>    Resume-NaVolMove<br>    <br>SYNOPSIS<br>    Resume a previously paused move.<br>    <br>SYNTAX<br>    Resume-NaVolMove [-Volume] &lt;String&gt; [[-CutoverWindow] &lt;Int32&gt;] <br>    [[-CutoverAttempts] &lt;Int32&gt;] [-ManualCutover] [-KeepSource] <br>    [-OverrideWarnings] [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Resume a previously paused move. It will run a series of checks to <br>    determine if the volume move can be resumed. If there are no errors or <br>    warnings, the move will be resumed. The status of the move can be obtained <br>    from Get-NaVolMove. If any of the checks result in an error or warning, <br>    error or warning will be returned in the ErrorWarnings field. If the checks <br>    result in no errors but one or more warnings and the OverrideWarnings <br>    switch is set, the API will return successfully and the move will be <br>    resumed. If Cutover cannot be completed, the move will pause. The reason <br>    for the pause can be obtained from Get-NaVolMove.<br>    <br><br>PARAMETERS<br>    -Volume &lt;String&gt;<br>        The name of the volume being moved.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -CutoverWindow &lt;Int32&gt;<br>        Time interval to complete cutover in seconds.  Default is the value <br>        supplied to Start-NaVolMove.<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -CutoverAttempts &lt;Int32&gt;<br>        Number of cutover attempts.  Default is the value supplied to <br>        Start-NaVolMove.<br>        <br>        Required?                    false<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -ManualCutover<br>        If specified, user has to initiate cutover.  Default is the value <br>        supplied to Start-NaVolMove.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -KeepSource<br>        If specified, the source volume will not be destroyed after the move is <br>        complete.  Default is the value supplied to Start-NaVolMove.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -OverrideWarnings<br>        If warnings are encountered during the resume, the default behavior is <br>        to pause.  If this switch is set, the move will continue and return <br>        these warnings in the ErrorWarning field.  Default is the value <br>        supplied to Start-NaVolMove.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Volume.VolMoveStatus<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: volume<br>        API: volume-move-resume<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Resume-NaVolMove vol1<br>    <br>    <br>    Resume the move operation on vol1.<br>    <br>    <br>    <br>    SourceVolumeName  : vol1<br>    IsStarted         : True<br>    ErrorWarningCount : 0<br>    ErrorWarnings     : {}<br>    MoveState         : move<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Suspend-NaVolMove.html">Suspend-NaVolMove</A> <br>    <A HREF="cmdlet_Stop-NaVolMove.html">Stop-NaVolMove</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

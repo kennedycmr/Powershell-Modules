@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Release notes</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><h2>Alpha build for Data ONTAP PowerShell Toolkit 4.3 using R9.3xN_170721_0301</h2><p><p><h3>Major features</h3><p><ul><p>    <li><p>         <p><p>        </p><p>    </li><p></ul><p><p><h3>New cmdlets </h3><p><p> The following categories have new cmdlets added. </p><p><ul><p>    <li>Qos (7)</li><p>    <li>Snapmirror (7)</li><p>    <li>Security (4)</li><p>    <li>Security-Key-Manager(3)</li><p>    <li>Volume(5)</li><p>    <li>Snaplock(13)</li><p>    <li>System(4)</li>    <p>    <li>Aggr (1)</li><p>    <li>Cluster(2)</li><p>    <li>NameService (10)</li><p>    <li>Net (2)</li><p>    <li>NtpServer(3)</li><p>    <li>TemplateMangement(9)</li>    <p></ul><p><p><p> The following categories have been added. </p><p><ul><p>    <li></li><p></ul><p><p><p><h3>Updates</h3><p><ul> <p>  <li> Cmdlets: New parameters<p>    <ul><p>        <p>        <li><strong>InvokeNcSnapmirrorInitialize</strong>:IsAutoExpandEnabled </li><p>        <li><strong>InvokeNcSnapmirrorRestore</strong>:CgItemMappings </li><p>        <li><strong>InvokeNcSnapmirrorResync</strong>:IsAutoExpandEnabled </li><p>        <li><strong>NewNcSnapmirror</strong>:IsAutoExpandEnabled </li><p>        <li><strong>SetNcSnapmirror</strong>:IsAutoExpandEnabled </li><p>        <li><strong>UpdateNcSnapmirror</strong>:IsAutoExpandEnabled </li><p>        <li><strong>RemoveNcUser</strong>:RemoteSwitchIpaddress </li><p>        <li><strong>SetNcUser</strong>:RemoteSwitchIpaddress, SecondAuthenticationMethod </li><p>        <li><strong>NewNcUser</strong>:RemoteSwitchIpaddress, SecondAuthenticationMethod </li><p>        <li><strong>GetNcUser</strong>:RemoteSwitchIpaddress </li><p>        <li><strong>NewNcSecurityTraceFilter</strong>:Protocols </li><p>        <li><strong>SetNcSecurityTraceFilter</strong>:Protocols </li><p>        <li><strong>NewNcVol</strong>:QosAdaptivePolicygroupName </li><p>        <li><strong>SetNcSis</strong>:EnableCrossVolumeBackgroundDedupe, ApplicationIoSize </li><p>        <li><strong>SetNcStorageArrayPort</strong>:TargetIqn, Tpgt </li><p>        <li><strong>SetNcSnaplockVolAttrs</strong>:IsVolumeAppendModeEnabled </li><p>        <li><strong>SetNcSystemHypervisorSnmpv3Config</strong>:SnmpTrapport </li><p>        <li><strong>NewNcSystemHypervisorSnmpv3Config</strong>:SnmpTrapport </li><p>        <li><strong>SetNcCifsOption</strong>:IsFsctlFileLevelTrimEnabled </li><p>        <li><strong>SetNcNetTuningIcmp</strong>:RedirectTimeout </li><p>        <li><strong>StartNcPerfObject</strong>:Preset </li><p>        <li><strong>SetNcAutosupportConfig</strong>: ValidateDigitalCertificate</li><p>        <li><strong>AddNcJobCronSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>AddNcJobIntervalSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>GetNcJobCronSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>GetNcJobIntervalSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>GetNcJobSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>RemoveNcJobCronSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>RemoveNcJobIntervalSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>SetNcJobCronSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>SetNcJobIntervalSchedule</strong>: JobScheduleCluster</li><p>        <li><strong>StartNcDiskZeroSpare</strong>: UsePhysicalZeroing</li><p>        <li><strong></strong>: </li><p>    </ul><p>  </li>     <p></ul><p><p><h3>Fixes</h3><p><ul><p>    <li></li><p></ul><p><p><h3>Notes</h3><p><ul> Cmdlets: Removed parameters<p>    <li><strong></strong>: </li><p>    <li><strong></strong></li><p></ul><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

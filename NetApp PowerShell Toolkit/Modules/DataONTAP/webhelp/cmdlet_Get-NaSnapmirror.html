@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaSnapmirror</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaSnapmirror</H2><PRE><br>NAME<br>    Get-NaSnapmirror<br>    <br>SYNOPSIS<br>    Return the SnapMirror status.<br>    <br>SYNTAX<br>    Get-NaSnapmirror [[-Location] &lt;String&gt;] [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Return the SnapMirror status.  This API can be issued on either the source <br>    or destination filer.<br>    <br><br>PARAMETERS<br>    -Location &lt;String&gt;<br>        The source location or destination location of the SnapMirror pair. <br>        Possible types are volume or qtree only. If this input is provided, <br>        only the SnapMirror relationships with a matching source or destination <br>        will be reported. The argument is invalid if the named location doesn&#39;t <br>        exist.  The argument can also be invalid if it is a flexclone name. (Be <br>        aware that the &quot;Get-NaSnapmirrorDestination&quot; API can return flexclone <br>        names.) Then this API will return an output value with a &quot;state&quot; of <br>        &quot;unknown&quot;. If the argument is not specified, all source, destination <br>        SnapMirror pairs are returned.<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Snapmirror.SnapmirrorStatusInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: snapmirror<br>        API: snapmirror-get-status<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaSnapmirror benson:dunn_vol2_mirror<br>    <br>    <br>    Get the status of the snapmirror using location &quot;benson:dunn_vol2_mirror&quot;.  <br>    In this example, the given location is the destination, but this cmdlet <br>    also accepts source locations.<br>    <br>    <br>    <br>    BaseSnapshot           : benson(0118045471)_dunn_vol2_mirror.13<br>    Contents               : -<br>    CurrentTransferError   :<br>    CurrentTransferType    :<br>    DestinationLocation    : benson:dunn_vol2_mirror<br>    LagTime                : 49200<br>    LagTimeTS              : 13:40:00<br>    LastTransferDuration   : 10<br>    LastTransferDurationTS : 00:00:10<br>    LastTransferFrom       : -<br>    LastTransferSize       : 7761920<br>    LastTransferType       : -<br>    MirrorTimestamp        : 1280732401<br>    MirrorTimestampDT      : 8/2/2010 7:00:01 AM<br>    SourceLocation         : dunn:vol2<br>    State                  : source<br>    Status                 : idle<br>    TransferProgress       : 0<br>    <br>    <br>    <br>    <br>RELATED LINKS<br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

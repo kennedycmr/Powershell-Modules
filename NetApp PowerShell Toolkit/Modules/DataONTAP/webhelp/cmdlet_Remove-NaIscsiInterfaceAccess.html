@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Remove-NaIscsiInterfaceAccess</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Remove-NaIscsiInterfaceAccess</H2><PRE><br>NAME<br>    Remove-NaIscsiInterfaceAccess<br>    <br>SYNOPSIS<br>    Remove the named network interfaces from the accesslist for the specified <br>    initiator.<br>    <br>SYNTAX<br>    Remove-NaIscsiInterfaceAccess [-Initiator] &lt;String&gt; [-Interface] &lt;String[]&gt; <br>    [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    Remove-NaIscsiInterfaceAccess [-Initiator] &lt;String&gt; [-All] [-Controller <br>    &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Remove the named network interfaces from the accesslist for the specified <br>    initiator. If this command leaves the initiator&#39;s accesslist empty, the <br>    accesslist itself is removed.<br>    <br>    Creating or modifying an accesslist may require shutting down existing <br>    iSCSI sessions associated with network interfaces that no longer appear on <br>    the accesslist. For example, creating a new accesslist via the add <br>    operation may cause sessions to be shut down on network interfaces that are <br>    not in the new accesslist. Likewise, removing network interfaces from an <br>    existing accesslist via the remove operation may also cause sessions to be <br>    shut down.  Note that adding all interfaces (using -All) and removing all <br>    interfaces (using -All) will not affect any iSCSI sessions.<br>    <br><br>PARAMETERS<br>    -Initiator &lt;String&gt;<br>        The initiator for which to remove from the accesslist.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Interface &lt;String[]&gt;<br>        One or more interfaces to remove from the accesslist.<br>        <br>        Required?                    true<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -All<br>        If specified, remove all interfaces from the accesslist.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: iscsi<br>        API: system-cli<br>        Privilege: security-priv-admin, cli-iscsi-interface-accesslist-remove<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Remove-NaIscsiInterfaceAccess -Initiator (Get-NaHostIscsiAdapter).Iqn <br>    -All<br>    <br>    <br>    Remove all the interfaces from the accesslist for the current host&#39;s iSCSI <br>    initiator.<br>    <br>    <br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Add-NaIscsiInterfaceAccess.html">Add-NaIscsiInterfaceAccess</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

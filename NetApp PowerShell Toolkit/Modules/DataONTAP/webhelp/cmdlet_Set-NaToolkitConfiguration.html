@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Set-NaToolkitConfiguration</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Set-NaToolkitConfiguration</H2><PRE><br>NAME<br>    Set-NaToolkitConfiguration<br>    <br>SYNOPSIS<br>    Set the basic Data ONTAP PowerShell Toolkit configuration.<br>    <br>SYNTAX<br>    Set-NaToolkitConfiguration [-LogLevel] &lt;String&gt; [[-Logger] &lt;String&gt;] <br>    [[-LogToFile] &lt;String&gt;] [&lt;CommonParameters&gt;]<br>    <br>    Set-NaToolkitConfiguration [-LogLevel] &lt;String&gt; [[-Logger] &lt;String&gt;] <br>    [[-LogToFile] &lt;String&gt;] [-NoConsoleOutput] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Set the basic Data ONTAP PowerShell Toolkit configuration.  Used to set the <br>    debug level of the PowerShell Toolkit.  The new debug level will take <br>    effect after PowerShell is restarted.<br>    <br><br>PARAMETERS<br>    -LogLevel &lt;String&gt;<br>        The log level.  Possible values: DEBUG, ERROR, WARN, OFF.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Logger &lt;String&gt;<br>        The logger to change.  If not specified, all loggers will be changed.<br>        <br>        Required?                    false<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -LogToFile &lt;String&gt;<br>        The file in which logging output is to be saved.<br>        <br>        Required?                    false<br>        Position?                    3<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -NoConsoleOutput<br>        Specify to suppress logging output to the PowerShell console. If <br>        specified, it is mandatory to specify a file where logging statements <br>        will be saved.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Utils.ToolkitConfiguration<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: toolkit<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Set-NaToolkitConfiguration -DebugLevel DEBUG<br>    <br>    <br>    Set the debug level to DEBUG.<br>    <br>    <br>    <br>    Log<br>    ---<br>    {DataONTAP.PowerShell: DEBUG, DataONTAP.C.PowerShell: DEBUG, <br>    DataONTAP.HostUtilities: DEBUG, NetApp.Ontapi: DEBUG}<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Set-NaToolkitConfiguration -DebugLevel DEBUG -LogToFile <br>    C:\Temp\DataONTAP.Powershell.Log<br>    <br>    <br>    Set logger to level DEBUG and store a copy of log output in <br>    C:\Temp\DataONTAP.Powershell.Log<br>    <br>    <br>    <br>    Log<br>    ---<br>    {DataONTAP.PowerShell: DEBUG, DataONTAP.C.PowerShell: DEBUG, <br>    DataONTAP.HostUtilities: DEBUG, NetApp.Ontapi: DEBUG}<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NaToolkitConfiguration.html">Get-NaToolkitConfiguration</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

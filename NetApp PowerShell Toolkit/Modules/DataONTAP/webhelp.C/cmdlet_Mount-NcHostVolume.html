@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Mount-NcHostVolume</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Mount-NcHostVolume</H2><PRE><br>NAME<br>    Mount-NaHostVolume<br>    <br>SYNOPSIS<br>    Add a drive letter or empty folder mount point to an existing Windows <br>    volume.<br>    <br>SYNTAX<br>    Mount-NaHostVolume [[-Path] &lt;String&gt;] [-MountPoint] &lt;String&gt; <br>    [&lt;CommonParameters&gt;]<br>    <br>    Mount-NaHostVolume [-VdsId] &lt;Guid&gt; [-MountPoint] &lt;String&gt; <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Add a drive letter or empty folder mount point to an existing Windows <br>    volume.<br>    <br>    This cmdlet must be run with administrative privileges.<br>    <br><br>PARAMETERS<br>    -Path &lt;String&gt;<br>        The mount point (i.e. G:, <br>        \\?\Volume{12345678-abcd-1234-abcd-1234567890ab}\) or a path to any <br>        file on the volume to process<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -MountPoint &lt;String&gt;<br>        A drive letter (i.e. &#39;G&#39;) or the path to an empty folder to mount the <br>        volume<br>        <br>        Required?                    true<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -VdsId &lt;Guid&gt;<br>        The Guid object which uniquely identifies the volume in VDS.  Note that <br>        this is not the same as the volume guid path.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.PowerShell.SDK.Cmdlets.Toolkit.Windows.HostVolume<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: host<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Mount-NaHostVolume E:\ -MountPoint C:\NewDir<br>    <br>    <br>    Add a folder mount point to the volume currently mounted at E:\.<br>    <br>    <br>    <br>    MountPoints                    Disk       Size GuidPaths<br>    -----------                    ----       ---- ---------<br>    {E:\, C:\NewDir\}                 4    10.0 GB <br>    {\\?\Volume{20a7fedf-f8e4-11e0-949b-00155da1ce00}\}<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Dismount-NaHostVolume Q:\ | Mount-NaHostVolume -MountPoint E:\<br>    <br>    <br>    Change the drive letter of a volume.<br>    <br>    <br>    <br>    MountPoints                    Disk       Size GuidPaths<br>    -----------                    ----       ---- ---------<br>    {E:\}                             4    10.0 GB <br>    {\\?\Volume{20a7fedf-f8e4-11e0-949b-00155da1ce00}\}<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    Dismount-NaHostVolume <br>    Get-NaHostVolume <br>    New-NaHostVolume <br>    Remove-NaHostVolume <br>    Set-NaHostVolumeSize <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

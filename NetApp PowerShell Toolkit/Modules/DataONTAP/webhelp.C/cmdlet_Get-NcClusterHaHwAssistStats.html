@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NcClusterHaHwAssistStats</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp/index.html"><FONT CLASS="NavBarFont1"><B>Switch to Data ONTAP 7-mode documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NcClusterHaHwAssistStats</H2><PRE><br>NAME<br>    Get-NcClusterHaHwAssistStats<br>    <br>SYNOPSIS<br>    Get useful information about statistics of hardware assisted takeover <br>    functionality.<br>    <br>SYNTAX<br>    Get-NcClusterHaHwAssistStats [-Node] &lt;String&gt; [-Controller <br>    &lt;NcController[]&gt;] [-ZapiRetryCount &lt;Int32&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get useful information about statistics of hardware assisted takeover <br>    functionality.<br>    <br><br>PARAMETERS<br>    -Node &lt;String&gt;<br>        Node name for which the API is requested.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NcController[]&gt;<br>        A clustered Data ONTAP controller to receive this cmdlet, as embodied <br>        by an NcController object.  This parameter is returned by the <br>        Connect-NcController cmdlet.  If not specified, the value in the global <br>        variable CurrentNcController is used.  In the latter case, if <br>        CurrentNcController contains a collection of NcController objects, this <br>        cmdlet is invoked on each controller in succession.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -ZapiRetryCount &lt;Int32&gt;<br>        <br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.C.Types.Cf.ClusterHaHwAssistStats<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: cf<br>        API: cf-hwassist-stats<br>        Family: cluster<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NcClusterHaHwAssistStats -Node sfp-cmode-02-01<br>    <br>    <br>    Get statistics for the hw assisted takeover for node sfp-cmode-02-01.<br>    <br>    <br>    <br>    NoStats                       :<br>    HwAssistStatsPostError        : system_down  post_error                0 No <br>           ---<br>    HwAssistStatsPowerLoss        : system_down  power_loss                0 <br>    Yes       ---<br>    HwAssistStatsWatchdogReset    : system_down  l2_watchdog_reset         0 <br>    Yes       ---<br>    HwAssistStatsPowerOffViaRlm   : system_down  power_off_via_rlm         0 <br>    Yes       ---<br>    HwAssistStatsPowerCycleViaRlm : system_down  power_cycle_via_rlm       0 <br>    Yes       ---<br>    HwAssistStatsResetViaRlm      : system_down  reset_via_rlm             0 <br>    Yes       ---<br>    HwAssistStatsPowerOffViaSp    : system_down  power_off_via_sp          0 <br>    Yes       ---<br>    HwAssistStatsPowerCycleViaSp  : system_down  power_cycle_via_sp        0 <br>    Yes       ---<br>    HwAssistStatsResetViaSp       : system_down  reset_via_sp              0 <br>    Yes       ---<br>    HwAssistStatsAbnormalReboot   : system_down  abnormal_reboot           0 No <br>           ---<br>    HwAssistStatsLossOfHeartbeat  : system_down  loss_of_heartbeat         0 No <br>           ---<br>    HwAssistStatsKeepAlive        : keep_alive   periodic_message      32621 No <br>           Mon Dec 16 15:07:56 GMT 2013<br>    <br>    HwAssistStatsTest             : test         test                      2 No <br>           Fri Dec 13 19:20:30 GMT 2013<br>    <br>    HwAssistStatsBadNvramId       : ID_mismatch  ---                       0 <br>    ---       ---<br>    <br>    HwAssistStatsSsMismatch       : Key_mismatch ---                       0 <br>    ---       ---<br>    <br>    HwAssistStatsUnknownAlerts    : Unknown      ---                       0 <br>    ---       ---<br>    <br>    HwAssistStatsTimesThrottled   : Number_of_times_hw_assist_alerts_throttled: <br>    0<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Get-NcClusterHaHwAssist.html">Get-NcClusterHaHwAssist</A> <br>    <A HREF="cmdlet_Reset-NcClusterHaHwAssistStats.html">Reset-NcClusterHaHwAssistStats</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Invoke-NaSnmpWalk</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Invoke-NaSnmpWalk</H2><PRE><br>NAME<br>    Invoke-NaSnmpWalk<br>    <br>SYNOPSIS<br>    This cmdlet walks the SNMP MIB starting from the given OID.<br>    <br>SYNTAX<br>    Invoke-NaSnmpWalk [-OID] &lt;String&gt; [-Raw] [-Controller &lt;NaController&gt;] <br>    [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    This cmdlet walks the SNMP MIB starting from the given OID.  This is a <br>    convenience method, not a high-performance SNMP query tool.<br>    <br><br>PARAMETERS<br>    -OID &lt;String&gt;<br>        Fully qualified object identifier of an SNMP object. Only numeric OID&#39;s <br>        (ex: .1.3.6.1.4.1.789.1.1.1.0) are allowed.<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Raw<br>        Specify Raw to get string values.  Otherwise, a hashtable is written to <br>        the output for each OID.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    System.Object<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: snmp<br>        API: snmp-get, snmp-get-next<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Invoke-NaSnmpWalk -Raw<br>    <br>    <br>    Walk the SNMP MIB starting from the given OID.<br>    <br>    <br>    <br>    .1.3.6.1.4.1.789.1.1.1.0        2<br>    .1.3.6.1.4.1.789.1.1.2.0        NetApp Release 7.3.1: Thu Jan  8 01:17:51 <br>    PST 2009<br>    .1.3.6.1.4.1.789.1.1.3.0        0118044195<br>    .1.3.6.1.4.1.789.1.1.4.0        1<br>    .1.3.6.1.4.1.789.1.1.5.0        FAS3040<br>    .1.3.6.1.4.1.789.1.1.6.0        2.0.0<br>    .1.3.6.1.4.1.789.1.1.7.0        https://10.61.167.60:443/na_admin<br>    .1.3.6.1.4.1.789.1.1.8.0        <br>    https://10.61.167.60:443/servlets/netapp.servlets.admin.XMLrequest_filer<br>    .1.3.6.1.4.1.789.1.1.9.0        1086295<br>    .1.3.6.1.4.1.789.1.1.10.0       unknown<br>    .1.3.6.1.4.1.789.1.1.11.0       5<br>    .1.3.6.1.4.1.789.1.1.12.0       Trap variable currrently unsused.<br>    .1.3.6.1.4.1.789.1.1.13.0       FAS3040<br>    .1.3.6.1.4.1.789.1.2.1.1.0      197285100<br>    .1.3.6.1.4.1.789.1.2.1.2.0      2123552<br>    .1.3.6.1.4.1.789.1.2.1.3.0      1<br>    .1.3.6.1.4.1.789.1.2.1.4.0      195161583<br>    ...<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_Invoke-NaSnmpGet.html">Invoke-NaSnmpGet</A> <br>    <A HREF="cmdlet_Invoke-NaSnmpGetNext.html">Invoke-NaSnmpGetNext</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

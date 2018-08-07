@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaHostIscsiSession</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaHostIscsiSession</H2><PRE><br>NAME<br>    Get-NaHostIscsiSession<br>    <br>SYNOPSIS<br>    Get current iSCSI sessions on the host machine.<br>    <br>SYNTAX<br>    Get-NaHostIscsiSession [[-TargetName] &lt;String&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    Get current iSCSI sessions on the host machine.<br>    <br><br>PARAMETERS<br>    -TargetName &lt;String&gt;<br>        The Iqn of the target to get sessions for.<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.PowerShell.SDK.Cmdlets.Toolkit.Windows.IscsiSessionInfo<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: host<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaHostIscsiSession<br>    <br>    <br>    Get the current iSCSI sessions on the host machine.<br>    <br>    <br>    <br>    Connections    : {fffffa8003bb3018-0000000000000022}<br>    Devices        : {\\?\scsi#disk&amp;ven_netapp&amp;prod_lun#1&amp;1c121344&amp;0&amp;000000#{53f<br>    56307-b6bf-11d0-94f2-00a0c91efb8b}, \\?\scs<br>                     i#disk&amp;ven_netapp&amp;prod_lun#1&amp;1c121344&amp;0&amp;000001#{53f56307-b6<br>    bf-11d0-94f2-00a0c91efb8b}}<br>    NumConnections : 1<br>    NumDevices     : 2<br>    SessionId      : fffffa8003bb3018-4000013700000023<br>    InitiatorName  : iqn.1991-05.com.microsoft:win2k8devrre0<br>    TargetName     : iqn.1992-08.com.netapp:sn.135107386<br>    <br>    Connections    : {fffffa8003bb3018-0000000000000023}<br>    Devices        : {\\?\scsi#disk&amp;ven_netapp&amp;prod_lun#1&amp;1c121344&amp;0&amp;000100#{53f<br>    56307-b6bf-11d0-94f2-00a0c91efb8b}}<br>    NumConnections : 1<br>    NumDevices     : 1<br>    SessionId      : fffffa8003bb3018-4000013700000024<br>    InitiatorName  : iqn.1991-05.com.microsoft:win2k8devrre0<br>    TargetName     : iqn.1992-08.com.netapp:sn.135107303<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;Get-NaHostIscsiSession | Select -ExpandProperty devices<br>    <br>    <br>    Get the devices connected to the host machine.<br>    <br>    <br>    <br>    DeviceInterfaceGuid : 53f56307-b6bf-11d0-94f20a0c91efb8b<br>    DeviceInterfaceName : \\?\scsi#disk&amp;ven_netapp&amp;prod_lun#1&amp;1c121344&amp;0&amp;000000#<br>    {53f56307-b6bf-11d0-94f2-00a0c91efb8b}<br>    DeviceNumber        : 1<br>    DeviceType          : 7<br>    InitiatorName       : Root\ISCSIPRT\0000_0<br>    LegacyName          : \\.\PhysicalDrive1<br>    PartitionNumber     : 0<br>    ScsiLun             : 0<br>    ScsiPathId          : 0<br>    ScsiPortNumber      : 3<br>    ScsiTargetId        : 0<br>    TargetName          : iqn.1992-08.com.netapp:sn.135107386<br>    <br>    DeviceInterfaceGuid : 53f56307-b6bf-11d0-94f20a0c91efb8b<br>    DeviceInterfaceName : \\?\scsi#disk&amp;ven_netapp&amp;prod_lun#1&amp;1c121344&amp;0&amp;000001#<br>    {53f56307-b6bf-11d0-94f2-00a0c91efb8b}<br>    DeviceNumber        : 2<br>    DeviceType          : 7<br>    InitiatorName       : Root\ISCSIPRT\0000_0<br>    LegacyName          : \\.\PhysicalDrive2<br>    PartitionNumber     : 0<br>    ScsiLun             : 1<br>    ScsiPathId          : 0<br>    ScsiPortNumber      : 3<br>    ScsiTargetId        : 0<br>    TargetName          : iqn.1992-08.com.netapp:sn.135107386<br>    <br>    DeviceInterfaceGuid : 53f56307-b6bf-11d0-94f20a0c91efb8b<br>    DeviceInterfaceName : \\?\scsi#disk&amp;ven_netapp&amp;prod_lun#1&amp;1c121344&amp;0&amp;000100#<br>    {53f56307-b6bf-11d0-94f2-00a0c91efb8b}<br>    DeviceNumber        : 3<br>    DeviceType          : 7<br>    InitiatorName       : Root\ISCSIPRT\0000_0<br>    LegacyName          : \\.\PhysicalDrive3<br>    PartitionNumber     : 0<br>    ScsiLun             : 0<br>    ScsiPathId          : 0<br>    ScsiPortNumber      : 3<br>    ScsiTargetId        : 1<br>    TargetName          : iqn.1992-08.com.netapp:sn.135107303<br>    <br>    <br>    <br>    --------------  Example 3 --------------<br>    <br>    C:\PS&gt;Get-NaHostIscsiSession -TargetName iqn.1992-08.com.netapp:sn.99927627 <br>    | select -ExpandProperty Connections<br>    <br>    <br>    Get a list of connections to the given target.<br>    <br>    <br>    <br>    ConnectionId     : fffffa8003fb9018-0000000000000034<br>    InitiatorAddress : 192.168.0.100<br>    InitiatorPort    : 64465<br>    TargetAddress    : 192.168.0.102<br>    TargetPort       : 3260<br>    <br>    ConnectionId     : fffffa8003fb9018-0000000000000035<br>    InitiatorAddress : 192.168.0.100<br>    InitiatorPort    : 12754<br>    TargetAddress    : 192.168.0.102<br>    TargetPort       : 3260<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    Get-NaHostIscsiTarget <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

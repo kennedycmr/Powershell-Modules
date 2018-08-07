@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Test-NaSnapshotMulti</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Test-NaSnapshotMulti</H2><PRE><br>NAME<br>    Test-NaSnapshotMulti<br>    <br>SYNOPSIS<br>    Validates the multi-snapshot creation operation on the specified volumes.<br>    <br>SYNTAX<br>    Test-NaSnapshotMulti [-Volumes] &lt;String[]&gt; [-SnapName] &lt;String&gt; <br>    [-Controller &lt;NaController&gt;] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    This is a companion cmdlet of New-NaSnapshotMulti.  It validates the <br>    snapshot creation operation on the specified volumes.  But it does not <br>    actually create any snapshot.  This API only does validations on all <br>    volumes and reports all errors in the output array.  This API is intended <br>    to be issued before the New-NaSnapshotMulti cmdlet to find out all the <br>    errors that may be found during the snapshot create.  Its main purpose is <br>    to enable the caller of New-NaSnapshotMulti to reduce the likelihood of <br>    failure, thereby attempting to avoid the cleanup overhead of deleting any <br>    newly created snapshots during failure processing.  However, this <br>    validation API does not guarantee that New-NaSnapshotMulti cmdlet will <br>    actually work.  Something could change between the two calls to cause the <br>    actual snapshot creations to fail.<br>    <br><br>PARAMETERS<br>    -Volumes &lt;String[]&gt;<br>        Names of the volumes across which the snapshot creation is to be <br>        validated.  The maximum number of volumes on a cluster system is 1200 <br>        (100 for traditional volumes and 500 for flexible volumes.  The number <br>        is then doubled for a cluster system).<br>        <br>        Required?                    true<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -SnapName &lt;String&gt;<br>        Name of the snapshot to be created.  The maximum string length is 256 <br>        characters.<br>        <br>        Required?                    true<br>        Position?                    2<br>        Default value                <br>        Accept pipeline input?       true (ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -Controller &lt;NaController&gt;<br>        The Data ONTAP controller object, embodied by an NaController object.  <br>        This parameter is returned by the Connect-NaController cmdlet.  If not <br>        specified, the value in the global variable CurrentNaController is used.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.Types.Snapshot.VolumeError<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: snapshot<br>        API: snapshot-multicreate-validate<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Test-NaSnapshotMulti vol0,vol1 multisnap2<br>    <br>    <br>    Check whether a snapshot named &#39;multisnap2&#39; may be created on volumes <br>    &#39;vol0&#39; and &#39;vol1&#39;.  In this example, the answer is false because snapshots <br>    by that name already exist on both volumes.<br>    <br>    <br>    <br>    Errno Name                Reason                   ErrnoSpecified<br>    ----- ----                ------                   --------------<br>       17 vol0                Snapshot already...                True<br>       17 vol1                Snapshot already...                True<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    <A HREF="cmdlet_New-NaSnapshotMulti.html">New-NaSnapshotMulti</A> <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>

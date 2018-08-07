@@ -1,0 +1,38 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Data ONTAP PowerShell Toolkit: Cmdlet Get-NaHyperV</title></head><body><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1">    <A HREF="index.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="categories.html"><FONT CLASS="NavBarFont1"><B>Categories</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="cmdlets.html"><FONT CLASS="NavBarFont1"><B>Cmdlets</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="apis.html"><FONT CLASS="NavBarFont1"><B>APIs</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="provider.html"><FONT CLASS="NavBarFont1"><B>Provider</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="releaseNotes.html"><FONT CLASS="NavBarFont1"><B>Release notes</B></FONT></A>&nbsp;</TD>
+  <TD CLASS="NavBarCell1">    <A HREF="license.html"><FONT CLASS="NavBarFont1"><B>License</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr>
+<TABLE ALIGN="center">
+<TD ALIGN="center" VALIGN="middle"><A HREF="../webhelp.C/index.html"><FONT CLASS="NavBarFont1"><B>Switch to clustered Data ONTAP documentation.</B></FONT></A></TD>
+</TABLE><hr><H2>Cmdlet: Get-NaHyperV</H2><PRE><br>NAME<br>    Get-NaHyperV<br>    <br>SYNOPSIS<br>    List Hyper-V virtual machines running on the local host along with all Data <br>    ONTAP storage resources that they are using.<br>    <br>SYNTAX<br>    Get-NaHyperV [[-Name] &lt;String&gt;] [-All] [&lt;CommonParameters&gt;]<br>    <br>    <br>DESCRIPTION<br>    List Hyper-V virtual machines running on the local host along with all Data <br>    ONTAP storage resources that they are using.<br>    <br><br>PARAMETERS<br>    -Name &lt;String&gt;<br>        The name of one or more virtual machines to get.  Wildcards are <br>        permitted.<br>        <br>        Required?                    false<br>        Position?                    1<br>        Default value                <br>        Accept pipeline input?       true (ByValue, ByPropertyName)<br>        Accept wildcard characters?  false<br>        <br>    -All<br>        Specify to return all virtual machines, not just ones utilizing Data <br>        ONTAP storage.<br>        <br>        Required?                    false<br>        Position?                    named<br>        Default value                <br>        Accept pipeline input?       false<br>        Accept wildcard characters?  false<br>        <br>    &lt;CommonParameters&gt;<br>        This cmdlet supports the common parameters: Verbose, Debug,<br>        ErrorAction, ErrorVariable, WarningAction, WarningVariable,<br>        OutBuffer and OutVariable. For more information, see <br>        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). <br>    <br>INPUTS<br>    <br>        <br>        <br>    <br>     <br>    <br>OUTPUTS<br>    DataONTAP.HostUtilities.DiskDiscovery.VirtualMachine<br>        <br>        <br>    <br>     <br>    <br>NOTES<br>    <br>    <br>        Category: host<br>    <br>    --------------  Example 1 --------------<br>    <br>    C:\PS&gt;Get-NaHyperV | ft -AutoSize<br>    <br>    <br>    List all Hyper-V virtual machines running on the local host that utilize <br>    Data ONTAP storage resources.<br>    <br>    <br>    <br>    Name         Guid                                 Storage<br>    ----         ----                                 -------<br>    OpalisVM     68073F14-5B9A-44F2-923F-766432BE9A68 {O:\OpalisVM.vhd}<br>    W2k3OpalisVM F4043F56-79A1-4FA3-8F71-77E2CEBCF0E7 {P:\W2k3OpalisVM.vhd}<br>    <br>    <br>    <br>    --------------  Example 2 --------------<br>    <br>    C:\PS&gt;(Get-NaHyperV OpalisVM).Storage<br>    <br>    <br>    List the Data ONTAP storage resource(s) on Hyper-V virtual machine <br>    &#39;OpalisVM&#39;.<br>    <br>    <br>    <br>    VmDiskResourceName   : O:\OpalisVM.vhd<br>    VmDiskResourceType   : VHD<br>    HostDrivePath        : O:\<br>    HostDiskName         : \\.\PHYSICALDRIVE3<br>    HostVolume           : \\?\Volume{4044589b-4fd9-4c90-8495-f430945e7439}\<br>    HostVolumeIsCsv      : False<br>    ControllerName       : dunn<br>    ControllerIgroup     : <br>    viaRPC.iqn.1991-05.com.microsoft:x3550rre7.rtprre.testdomain<br>    ControllerAddress    : 10.61.167.60<br>    ControllerLunPath    : /vol/opalis/opalisVM<br>    ControllerVolumeName : opalis<br>    <br>    <br>    <br>    <br>RELATED LINKS<br>    Get-NaHostDisk <br><br><br><br><br><br></PRE><br><hr>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=2 CLASS="NavBarCell1">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <TD CLASS="NavBarCell1"><FONT CLASS="NavBarFont1"><B>Copyright&nbsp;&copy;&nbsp;2013 NetApp.&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;Use is subject to <A HREF="license.html">license</A> terms.</B></FONT>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="middle" ROWSPAN=1>
+<img border="0" src="NetAppLogoSmall.png">&nbsp;<EM><b>Data ONTAP&reg;&nbsp;PowerShell&nbsp;Toolkit</b></EM>
+</TD>
+</TR>
+</TABLE><hr></body></html>
